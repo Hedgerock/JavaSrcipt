@@ -17,6 +17,22 @@ const mainMenu = [
     },
 ]
 
+const content = [
+    {
+        title: 'first',
+        paragraph: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid nulla eius, reiciendis magnam, totam animi officiis, illum quasi iusto nisi doloremque maxime doloribus sapiente officia natus sed. Dolorum architecto accusamus repellat qui quam illo quis explicabo perferendis optio, voluptate quae.',
+        hiddenContent: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid nulla eius, reiciendis magnam, totam animi officiis, illum quasi iusto nisi doloremque maxime doloribus sapiente officia natus sed. Dolorum architecto accusamus repellat qui quam illo quis explicabo perferendis optio, voluptate quae.'
+    },
+    {   title: 'second',
+        paragraph: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid nulla eius, reiciendis magnam, totam animi officiis, illum quasi iusto nisi doloremque maxime doloribus sapiente officia natus sed. Dolorum architecto accusamus repellat qui quam illo quis explicabo perferendis optio, voluptate quae.',
+        hiddenContent: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid nulla eius, reiciendis magnam, totam animi officiis, illum quasi iusto nisi doloremque maxime doloribus sapiente officia natus sed. Dolorum architecto accusamus repellat qui quam illo quis explicabo perferendis optio, voluptate quae.'
+    },
+    {   title: 'third',
+        paragraph: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid nulla eius, reiciendis magnam, totam animi officiis, illum quasi iusto nisi doloremque maxime doloribus sapiente officia natus sed. Dolorum architecto accusamus repellat qui quam illo quis explicabo perferendis optio, voluptate quae.',
+        hiddenContent: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid nulla eius, reiciendis magnam, totam animi officiis, illum quasi iusto nisi doloremque maxime doloribus sapiente officia natus sed. Dolorum architecto accusamus repellat qui quam illo quis explicabo perferendis optio, voluptate quae.'
+    },
+]
+
 const products = [
     {   
         href: '#',
@@ -94,6 +110,8 @@ const products = [
 
 const menu = document.querySelector('.main-menu');
 const productList = document.querySelector('.product-list');
+const contentDiv = document.querySelector('.content');
+const showContent = document.querySelector('.show-content')
 
 const mainMenuList = mainMenu.map(function (item) {
     return `
@@ -104,6 +122,23 @@ const mainMenuList = mainMenu.map(function (item) {
         </li>
     `
 }).join('');
+
+
+const contentBlocks = content.map(function(item) {
+    return `
+    <div class = "paragraph-block">
+        <h3 class = "paragraph-block__title">${item.title}</h3>
+        <p class = "paragraph-block__text">
+            ${item.paragraph}
+        </p>
+        <p class = "paragraph-block__text paragraph-block__text_hidden">
+            ${item.hiddenContent}
+        </p>
+        <button class = "paragpaph-block__button"> read more </button>
+    </div>
+    `
+}).join('')
+
 
 const productListElem = products.map(function (item) {
     return `
@@ -145,7 +180,34 @@ const productListElem = products.map(function (item) {
 
 menu.innerHTML = mainMenuList;
 productList.innerHTML = productListElem;
+contentDiv.innerHTML = contentBlocks;
 
+const btn = document.querySelectorAll('.paragpaph-block__button');
+const hiddenContent = document.querySelectorAll('.paragraph-block__text_hidden')
+
+showContent.onclick = function() {
+    if (showContent.innerHTML === 'show posts') {
+        showContent.innerHTML = 'hide posts'
+        contentDiv.className = 'content content__visible'
+    } else {
+        showContent.innerHTML = 'show posts'
+        contentDiv.className = 'content'
+    }
+}
+
+btn.forEach(function(item, index) {
+    let elemIsHidden = true;
+    item.onclick = function() {
+        if (elemIsHidden) {
+            item.innerHTML = 'hide';
+            hiddenContent[index].className = 'paragraph-block__text_visible';
+        } else {
+            item.innerHTML = 'read more';
+            hiddenContent[index].className = 'paragraph-block__text_hidden';
+        }
+        elemIsHidden = !elemIsHidden
+    }
+})
 
 const stars = document.querySelectorAll('.stars');
 

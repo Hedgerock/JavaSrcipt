@@ -88,6 +88,84 @@ button {
     margin-left: 2rem;
 }
 
+.container {
+    display: block;
+    max-width: 1600px;
+    padding: 0 20px;
+    margin: 0 auto;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    text-align: end;  
+}
+
+.show-content {
+    font-size: 1.3rem;
+    border: 1px solid;
+    border-radius: .3rem;
+    padding: .4rem;
+    width: 10rem;
+    height: 3rem;
+}
+
+.content {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: none;
+}
+
+.content__visible {
+    display: block;
+}
+
+.paragraph-block {
+    padding: 25px;
+    background-color: silver;
+    border: 1px solid grey;
+}
+
+.paragraph-block:not(:first-child) {
+    margin-top: 1.5rem;
+}
+
+.paragraph-block__title {
+    margin-bottom: 1.5rem;
+    font-size: 1.7rem;
+    max-width: 20rem;
+    overflow: hidden;
+    color: grey;
+    text-transform: uppercase;
+}
+
+.paragraph-block__text {
+    color: grey;
+    font-size: 1.1rem;
+    word-spacing: 3px;
+}
+
+.paragraph-block__text_hidden {
+    display: none;
+}
+
+.paragraph-block__text_visible {
+    display: block;
+    color: grey;
+    font-size: 1.1rem;
+    word-spacing: 3px;
+}
+
+.paragpaph-block__button {
+    color: orangered;
+    padding: 10px;
+    height: 45px;
+    width:  120px;
+    background: white;
+    border: 1px solid grey;
+    border-radius: .4rem;
+    margin-top: 1.5rem;
+}
+
 
 .product-list {
     max-width: 1600px;
