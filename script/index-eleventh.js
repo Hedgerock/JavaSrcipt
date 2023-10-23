@@ -109,9 +109,12 @@ const products = [
 ]
 
 const menu = document.querySelector('.main-menu');
+const slides = document.querySelectorAll('.slider-slides__slide');
+const btnPrev = document.querySelector('.slider-buttons__button_prev');
+const btnNext = document.querySelector('.slider-buttons__button_next');
 const productList = document.querySelector('.product-list');
 const contentDiv = document.querySelector('.content');
-const showContent = document.querySelector('.show-content')
+const showContent = document.querySelector('.show-content');
 
 const mainMenuList = mainMenu.map(function (item) {
     return `
@@ -184,6 +187,19 @@ contentDiv.innerHTML = contentBlocks;
 
 const btn = document.querySelectorAll('.paragpaph-block__button');
 const hiddenContent = document.querySelectorAll('.paragraph-block__text_hidden')
+
+let btnIndex = 0;
+btnNext.onclick = function() {
+    slides[btnIndex].classList.remove('slider-slides__slide_active');
+    btnIndex = (btnIndex + 1) % slides.length;
+    slides[btnIndex].classList.add('slider-slides__slide_active');
+}
+
+btnPrev.onclick = function() {
+    slides[btnIndex].classList.remove('slider-slides__slide_active');
+    btnIndex = (btnIndex - 1 + slides.length) % slides.length;
+    slides[btnIndex].classList.add('slider-slides__slide_active')
+}
 
 showContent.onclick = function() {
     if (showContent.innerHTML === 'show posts') {
