@@ -17,6 +17,51 @@ const mainMenu = [
     },
 ]
 
+const sliderContent = [
+    {
+        picture: "./img/promo1.jpg",
+        link: "#",
+        title: "Halloween",
+        text: "Halloween comes but once a year, and the event is a howling money-maker for confectionary, costume, and retail and online stores. Sales abound as retailers take advantage of this spooktacular tradition to offer all types of Halloween sales. Listen to the Duke Morgan Voice Over demo to see how retailers used his acting ability to scare up new traffic and sales.",
+    },
+    {
+        picture: "./img/promo2.jpg",
+        link: "#",
+        title: "Приватбанк",
+        text: "Приватбанк — крупнейший банк Украины. Занимает лидирующие позиции по всем финансовым показателям в отрасли.",
+    },
+    {
+        picture: "./img/promo3.jpg",
+        link: "#",
+        title: "Gepur",
+        text: "Добро пожаловать в GEPUR! Мы украинская компания-производитель женской одежды, история которой берет свое начало с 2010 года.",
+    },
+    {
+        picture: "./img/promo4.jpg",
+        link: "#",
+        title: "Rozetka",
+        text: "Розе́тка — украинский интернет-магазин и маркетплейс, появившийся в 2005 году. Имеет отделения в Киеве, Одессе, Львове, Житомире и в Броварах",
+    },
+    {
+        picture: "./img/promo5.jpg",
+        link: "#",
+        title: "Шини",
+        text: "Легко підібрати, легко придбати. Високоякісні шини від виробників. Допоможемо обрати краще. Різноманітний вибір. Сертифікована продукція. Гарантія якості. ",
+    },
+    {
+        picture: "./img/promo6.jpg",
+        link: "#",
+        title: "Delivery",
+        text: "We also understand the importance of keeping it fresh and hot, which is why our delivery partners ensure your food reaches you in perfect condition.",
+    },
+    {
+        picture: "./img/promo7.jpg",
+        link: "#",
+        title: "Whirpool",
+        text: "Whirlpool Corporation — американская компания, основанная братьями Фредом и Луи Аптоном в 1911 году в штате Мичиган.",
+    },
+]
+
 const content = [
     {
         title: 'first',
@@ -109,7 +154,8 @@ const products = [
 ]
 
 const menu = document.querySelector('.main-menu');
-const slides = document.querySelectorAll('.slider-slides__slide');
+const sliderSlides = document.querySelector('.slider-slides');
+const dots = document.querySelector('.dots');
 const btnPrev = document.querySelector('.slider-buttons__button_prev');
 const btnNext = document.querySelector('.slider-buttons__button_next');
 const productList = document.querySelector('.product-list');
@@ -126,6 +172,21 @@ const mainMenuList = mainMenu.map(function (item) {
     `
 }).join('');
 
+const sliderList = sliderContent.map(function(item) {
+    return `
+        <a class = "slide" href = ${item.link}>
+            <div class = "slide__img">
+                <img src = ${item.picture} alt = "">
+            </div>
+            <div class = "slide-content">
+                <h3 class = "slide-content__title">${item.title}</h3>
+                <p class = "slide-content__text">
+                    ${item.text}
+                </p>
+            </div>
+        </a>
+    `
+}).join('');
 
 const contentBlocks = content.map(function(item) {
     return `
@@ -140,7 +201,7 @@ const contentBlocks = content.map(function(item) {
         <button class = "paragpaph-block__button"> read more </button>
     </div>
     `
-}).join('')
+}).join('');
 
 
 const productListElem = products.map(function (item) {
@@ -179,35 +240,72 @@ const productListElem = products.map(function (item) {
             </span>
         </div>
     `
-}).join('')
+}).join('');
 
 menu.innerHTML = mainMenuList;
+sliderSlides.innerHTML = sliderList;
 productList.innerHTML = productListElem;
 contentDiv.innerHTML = contentBlocks;
 
 const btn = document.querySelectorAll('.paragpaph-block__button');
-const hiddenContent = document.querySelectorAll('.paragraph-block__text_hidden')
+const hiddenContent = document.querySelectorAll('.paragraph-block__text_hidden');
+const slides = document.querySelectorAll('.slide');
+
+dots.innerHTML = dotsPerElem(slides);
+
+const allDots = document.querySelectorAll('.dots__button');
 
 let btnIndex = 0;
+
+initActiveElem(slides[0]);
+initActiveElem(allDots[0]);
+
+
+allDots.forEach(function(item, dotIndex) {
+    item.onclick = function() {
+        allDots.forEach(function(classDots){
+            classDots.classList.remove('dots__button_active')
+        })
+
+        allDots[dotIndex].classList.add('dots__button_active');
+
+        slides.forEach(function(classDots){
+            classDots.classList.remove('slide_active')
+        })
+
+        slides[dotIndex].classList.add('slide_active');
+
+        btnIndex = dotIndex;
+    }
+})
+
 btnNext.onclick = function() {
-    slides[btnIndex].classList.remove('slider-slides__slide_active');
+    slides[btnIndex].classList.remove('slide_active');
+    allDots[btnIndex].classList.remove('dots__button_active');
+    
     btnIndex = (btnIndex + 1) % slides.length;
-    slides[btnIndex].classList.add('slider-slides__slide_active');
+
+    slides[btnIndex].classList.add('slide_active');
+    allDots[btnIndex].classList.add('dots__button_active');
 }
 
 btnPrev.onclick = function() {
-    slides[btnIndex].classList.remove('slider-slides__slide_active');
+    slides[btnIndex].classList.remove('slide_active');
+    allDots[btnIndex].classList.remove('dots__button_active');
+
     btnIndex = (btnIndex - 1 + slides.length) % slides.length;
-    slides[btnIndex].classList.add('slider-slides__slide_active')
+
+    slides[btnIndex].classList.add('slide_active');
+    allDots[btnIndex].classList.add('dots__button_active');
 }
 
 showContent.onclick = function() {
     if (showContent.innerHTML === 'show posts') {
-        showContent.innerHTML = 'hide posts'
-        contentDiv.className = 'content content__visible'
+        showContent.innerHTML = 'hide posts';
+        contentDiv.className = 'content content__visible';
     } else {
-        showContent.innerHTML = 'show posts'
-        contentDiv.className = 'content'
+        showContent.innerHTML = 'show posts';
+        contentDiv.className = 'content';
     }
 }
 
@@ -221,11 +319,26 @@ btn.forEach(function(item, index) {
             item.innerHTML = 'read more';
             hiddenContent[index].className = 'paragraph-block__text_hidden';
         }
-        elemIsHidden = !elemIsHidden
+        elemIsHidden = !elemIsHidden;
     }
 })
 
 const stars = document.querySelectorAll('.stars');
+
+function initActiveElem(el) {
+    return el.classList.add(`${el.className}_active`);
+}
+
+function dotsPerElem(elem) {
+    let result = '';
+    for (let i = 0; i < elem.length; i++) {
+        const block = `<button class = "dots__button"></button>`
+        result += block;
+    }
+
+    return result;
+}
+
 
 for (let star of stars) {
     let totalData = '';
