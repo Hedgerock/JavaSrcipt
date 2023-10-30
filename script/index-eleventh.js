@@ -20,47 +20,69 @@ const mainMenu = [
 const sliderContent = [
     {
         picture: "./img/promo1.jpg",
+        pictureSmall: "./img/promo1small.jpg",
         link: "#",
         title: "Halloween",
         text: "Halloween comes but once a year, and the event is a howling money-maker for confectionary, costume, and retail and online stores. Sales abound as retailers take advantage of this spooktacular tradition to offer all types of Halloween sales. Listen to the Duke Morgan Voice Over demo to see how retailers used his acting ability to scare up new traffic and sales.",
     },
     {
         picture: "./img/promo2.jpg",
+        pictureSmall: "./img/promo2small.jpg",
         link: "#",
         title: "Приватбанк",
         text: "Приватбанк — крупнейший банк Украины. Занимает лидирующие позиции по всем финансовым показателям в отрасли.",
     },
     {
         picture: "./img/promo3.jpg",
+        pictureSmall: "./img/promo3small.jpg",
         link: "#",
         title: "Gepur",
         text: "Добро пожаловать в GEPUR! Мы украинская компания-производитель женской одежды, история которой берет свое начало с 2010 года.",
     },
     {
         picture: "./img/promo4.jpg",
+        pictureSmall: "./img/promo4small.jpg",
         link: "#",
         title: "Rozetka",
         text: "Розе́тка — украинский интернет-магазин и маркетплейс, появившийся в 2005 году. Имеет отделения в Киеве, Одессе, Львове, Житомире и в Броварах",
     },
     {
         picture: "./img/promo5.jpg",
+        pictureSmall: "./img/promo5small.jpg",
         link: "#",
         title: "Шини",
         text: "Легко підібрати, легко придбати. Високоякісні шини від виробників. Допоможемо обрати краще. Різноманітний вибір. Сертифікована продукція. Гарантія якості. ",
     },
     {
         picture: "./img/promo6.jpg",
+        pictureSmall: "./img/promo6small.jpg",
         link: "#",
         title: "Delivery",
         text: "We also understand the importance of keeping it fresh and hot, which is why our delivery partners ensure your food reaches you in perfect condition.",
     },
     {
         picture: "./img/promo7.jpg",
+        pictureSmall: "./img/promo7small.jpg",
         link: "#",
         title: "Whirpool",
         text: "Whirlpool Corporation — американская компания, основанная братьями Фредом и Луи Аптоном в 1911 году в штате Мичиган.",
     },
 ]
+
+const accordionElements = [
+    {
+        title: 'Promo',
+        text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid nulla eius, reiciendis magnam, totam animi officiis, illum quasi iusto',
+    },
+    {
+        title: 'Promo',
+        text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid nulla eius, reiciendis magnam, totam animi officiis, illum quasi iusto',
+    },
+    {
+        title: 'Promo',
+        text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid nulla eius, reiciendis magnam, totam animi officiis, illum quasi iusto',
+    },
+]   
 
 const content = [
     {
@@ -158,6 +180,7 @@ const sliderSlides = document.querySelector('.slider-slides');
 const dots = document.querySelector('.dots');
 const btnPrev = document.querySelector('.slider-buttons__button_prev');
 const btnNext = document.querySelector('.slider-buttons__button_next');
+const box = document.querySelector('.box');
 const productList = document.querySelector('.product-list');
 const contentDiv = document.querySelector('.content');
 const showContent = document.querySelector('.show-content');
@@ -176,7 +199,8 @@ const sliderList = sliderContent.map(function(item) {
     return `
         <a class = "slide" href = ${item.link}>
             <div class = "slide__img">
-                <img src = ${item.picture} alt = "">
+                <img class = "slide__image slide__image_small" src = ${item.pictureSmall} alt = "">
+                <img class = "slide__image slide__image_big" src = ${item.picture} alt = "">
             </div>
             <div class = "slide-content">
                 <h3 class = "slide-content__title">${item.title}</h3>
@@ -187,6 +211,23 @@ const sliderList = sliderContent.map(function(item) {
         </a>
     `
 }).join('');
+
+const accordionStructure = accordionElements.map(function(item) {
+    return `
+        <div class = "box-item">
+            <button class = "accordion-button">
+                <i class="fa-solid fa-plus"></i>
+            </button>
+            <h2 class = "box-item__title">ACCORDION</h2>
+            <div class = "accordion-block">
+                <h2 class = "accordion-block__title">${item.title}</h2>
+                <div class = "accordion-block__text">
+                    ${item.text}
+                </div>
+            </div>
+        </div>
+    `
+}).join('')
 
 const contentBlocks = content.map(function(item) {
     return `
@@ -244,10 +285,13 @@ const productListElem = products.map(function (item) {
 
 menu.innerHTML = mainMenuList;
 sliderSlides.innerHTML = sliderList;
+box.innerHTML = accordionStructure;
 productList.innerHTML = productListElem;
 contentDiv.innerHTML = contentBlocks;
 
 const btn = document.querySelectorAll('.paragpaph-block__button');
+const accordionButton = document.querySelectorAll('.accordion-button');
+const accordionBlock = document.querySelectorAll('.accordion-block');
 const hiddenContent = document.querySelectorAll('.paragraph-block__text_hidden');
 const slides = document.querySelectorAll('.slide');
 
@@ -298,6 +342,34 @@ btnPrev.onclick = function() {
     slides[btnIndex].classList.add('slide_active');
     allDots[btnIndex].classList.add('dots__button_active');
 }
+
+accordionButton.forEach(function(item, index) {
+
+    item.onclick = function() {
+        if (item.className.includes('accordion-button_active')) {
+
+            item.classList.remove('accordion-button_active');
+            item.innerHTML = '<i class="fa-solid fa-plus"></i>';
+            accordionBlock[index].classList.remove('accordion-block_visible');
+
+            return;
+        }
+
+        accordionBlock.forEach(function (el) {
+            el.classList.remove('accordion-block_visible');
+        })
+
+        accordionButton.forEach(function(btn) {
+            btn.classList.remove('accordion-button_active');
+            btn.innerHTML = '<i class="fa-solid fa-plus"></i>'
+        })
+
+
+        item.innerHTML = '<i class="fa-solid fa-minus"></i>';
+        accordionBlock[index].classList.add('accordion-block_visible');
+        item.classList.add('accordion-button_active')
+    }
+})
 
 showContent.onclick = function() {
     if (showContent.innerHTML === 'show posts') {
