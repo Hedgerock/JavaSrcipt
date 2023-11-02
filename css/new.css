@@ -13,6 +13,10 @@ li {
     list-style-type: none;
 }
 
+body {
+    height: 5000px;
+}
+
 button {
     outline: none;
     border: none;
@@ -548,6 +552,59 @@ button {
     margin-top: .5rem;
 }
 
+.users-content {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.content-button {
+    font-size: 1.2rem;
+    background: grey;
+    color: white;
+    border: 1px solid silver;
+    border-radius: .5rem;
+    padding: .5rem;
+    transition: all .3s;
+}
+
+
+.content-button:hover {
+    background: #78787894;
+    border: 1px solid white;
+}
+
+.content-button:active {
+    color: silver;
+}
+
+.content-button:not(:last-child) {
+    margin-right: 1.5rem;
+}
+
+.users-content-box {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+}
+
+.users-content-element {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    min-width: 50px;
+    min-height: 50px;
+    padding: 15px;
+    border: 1px solid;
+    border-radius: .5rem;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.users-content-element_active {
+    background: red;
+}
 
 @media (max-width: 1160px) {
     .product-list-elem {

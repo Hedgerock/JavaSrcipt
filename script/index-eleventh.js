@@ -420,3 +420,227 @@ for (let star of stars) {
     }
     star.innerHTML = totalData;
 }
+
+const contentFromUser = document.createElement('div');
+contentFromUser.className = "users-content";
+document.body.append(contentFromUser);
+
+const buttonsDiv = document.createElement('div');
+buttonsDiv.className = "users-content-buttons";
+contentFromUser.append(buttonsDiv);
+
+const userContentDiv = document.createElement('div');
+userContentDiv.className = "users-content-box";
+contentFromUser.append(userContentDiv);
+
+let count = 1;
+
+const btnAttributes = [
+    {
+        className: 'content-button content-button_add',
+        innerHtml: 'add element',
+        onClick: function() {
+            if (count < 0) {
+                count = 1;
+            }
+
+            const newEl = document.createElement('div');
+    
+            newEl.className = 'users-content-element';
+            newEl.innerHTML = count;
+    
+            const newEls = document.querySelectorAll('.users-content-element')
+            let inserted = false;
+
+            newEls.forEach(function(element) {
+                if (element.className.includes('users-content-element_active')) {
+                    element.insertAdjacentElement('afterend', newEl);
+                    inserted = true;
+                    count++;
+                }
+            })
+    
+            newEl.onclick = function() {
+                unactiveAll(this);
+                this.classList.toggle('users-content-element_active')
+            }
+    
+            if (!inserted) {
+                userContentDiv.append(newEl);
+                count++;
+            }
+        }
+    },    
+    {   
+        className: 'content-button content-button_remove',
+        innerHtml: 'remove element',
+        onClick: function() {
+            const newEl = document.querySelector('.users-content-element')
+            const newEls = document.querySelectorAll('.users-content-element')
+
+            if (!newEls.length) {
+                alert('nothing to delete');
+                return;
+            }
+            
+            let isElRemoved = false;
+
+            newEls.forEach(function(element) {
+                if (element.className.includes('users-content-element_active')) {
+                    if (element.previousElementSibling) {
+                        element.previousElementSibling.classList.add('users-content-element_active');
+                    } else {
+                        count++;
+                    }
+                    element.remove();
+                    isElRemoved = true;
+                }
+            })
+
+            if (isElRemoved) {
+                count--;
+            }
+
+            if (!document.querySelector('.users-content-element_active')) {
+                newEl.remove();
+                count--;
+            }
+        }
+    },
+    {
+        className: 'content-button content-button_clone-after',
+        innerHtml: 'clone content after element',
+        onClick: function() {
+            if (!document.querySelector('.users-content-element')) {
+                alert('create at least 1 element');
+                return;
+            }
+
+            const newEls = document.querySelectorAll('.users-content-element')
+            const cloneEl  =  document.createElement('div');
+
+            cloneEl.className = 'users-content-element';
+            let isCloned = false;
+
+            cloneEl.onclick = function() {
+                unactiveAll(this);
+                this.classList.toggle('users-content-element_active')
+            }
+
+            newEls.forEach(function(element) {
+                if (element.className.includes('users-content-element_active')) {
+                    element.insertAdjacentElement('afterend', cloneEl);
+                    cloneEl.innerHTML = element.innerHTML + 'c';
+                    isCloned = true;
+                }
+            });
+
+            if (!isCloned) {
+                cloneEl.innerHTML = newEls[newEls.length - 1].innerHTML + 'c';
+                userContentDiv.append(cloneEl);
+            }
+        }
+    },
+    {
+        className: 'content-button content-button_clone-before',
+        innerHtml: 'clone content before element',
+        onClick: function() {
+            if (!document.querySelector('.users-content-element')) {
+                alert('create at least 1 element');
+                return;
+            }
+
+            const newEls = document.querySelectorAll('.users-content-element')
+            const cloneEl  =  document.createElement('div');
+
+            cloneEl.className = 'users-content-element';
+
+            let isCloned = false;
+            cloneEl.onclick = function() {
+
+                unactiveAll(this);
+                this.classList.toggle('users-content-element_active')
+
+            }
+
+            newEls.forEach(function(element) {
+                if (element.className.includes('users-content-element_active')) {
+                    element.insertAdjacentElement('beforebegin', cloneEl);
+                    cloneEl.innerHTML = element.innerHTML + 'c';
+                    isCloned = true;
+                }
+            });
+
+            if (!isCloned) {
+                cloneEl.innerHTML = newEls[0].innerHTML + 'c';
+                userContentDiv.prepend(cloneEl);
+            }
+        }
+    },
+    {
+        className: 'content-button content-button_remove-all',
+        innerHtml: 'remove all',
+        onClick: function() {
+            if (!document.querySelector('.users-content-element')) {
+                alert('add elements before removing');
+                return;
+            }
+
+            const allUsersEl = document.querySelectorAll('.users-content-element');
+            const doubleCheck = confirm('Are you sure you want to remove all elements?')
+
+            if (!doubleCheck) {
+                return
+            }
+
+            allUsersEl.forEach(function(item) {
+                item.remove();
+                count = 1;
+                return;
+            })
+        }
+    }
+]
+
+addButtons();
+
+function unactiveAll(currentEl) {
+    const newEl = document.querySelectorAll('.users-content-element');
+
+    newEl.forEach(function(item) {
+        if (item !== currentEl) {
+            item.classList.remove('users-content-element_active')
+        }
+    })
+}
+
+function addButtons() {
+    btnAttributes.forEach(function({className, innerHtml, onClick }) {
+        const button = document.createElement('button');
+        button.className = className;
+        button.innerHTML = innerHtml;
+        button.addEventListener('click', onClick);
+
+        buttonsDiv.append(button)
+    })
+}
+const addBtn = document.querySelector('.content-button_add');
+const removeBtn = document.querySelector('.content-button_remove');
+const cloneBeforeBtn = document.querySelector('.content-button_clone-before');
+const cloneAfterBtn = document.querySelector('.content-button_clone-before')
+
+addBtn.onclick = function() {
+    addBtn.onclick = btnAttributes.onClick;
+}
+
+removeBtn.onclick = function() {
+    removeBtn.onclick = btnAttributes.onClick
+}
+
+cloneBeforeBtn.onclick = function() {
+    cloneBeforeBtn.onclick = btnAttributes.onClick
+}
+
+cloneAfterBtn.onclick = function() {
+    cloneAfterBtn.onclick = btnAttributes.onClick
+}
