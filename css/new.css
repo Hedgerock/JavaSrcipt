@@ -50,6 +50,185 @@ button {
     align-self: flex-end;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+
+.elements-in-cart {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5));
+    width: 100vw;
+    height: 100%;
+    z-index: 100;
+    cursor: pointer;
+}
+
+.element-container {
+    background: silver;
+    border-radius: .5rem;
+    max-width: 1600px;
+    margin: 0 auto;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 200;
+    overflow: auto;
+    flex-direction: column;
+    padding: 4rem 1rem 1rem 1rem;
+    width: 100%;
+    height: 550px;
+}
+
+.elements-in-cart-block {
+    padding: 2rem 1rem;
+    width: 100%;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.product-element {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background: white;
+    border-radius: .5rem;
+    width: 100%;
+}
+
+.product-content {
+    display: flex;
+    align-items: center;
+}
+
+.product-element:not(:last-child) {
+    margin-bottom: 1.5rem;
+}
+
+
+.product-img {
+    width: 100px;
+    height: 100px;
+    border-radius: .4rem;
+    margin-right: 1.5rem;
+}
+
+.product-img__picture {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.product-element__link {
+    max-width: 15rem;
+    white-space: wrap;
+    font-size: 1.1rem;
+    transition: all .3s;
+}
+
+.product-element__link:hover {
+    color: red;
+}
+
+.total-elements {
+    display: flex;
+    align-items: center;
+}
+
+.total-elements__btn,
+.total-elements__current-value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: .5rem;
+    height: 45px;
+    padding: 5px;
+    border: 1px solid silver;
+}
+
+.total-elements__btn {
+    font-size: 1.7rem;
+    width: 45px;
+    color: silver;
+}
+
+.total-elements__current-value {
+    width: 75px;
+    margin: 0 5px;
+    font-size: 1.3rem;
+}
+
+.element-in-cart-block__title {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 4rem;
+}
+
+.total-price {
+    font-size: 1.3rem;
+    min-width: 100px;
+    text-align: center;
+}
+
+.total-price::after {
+    content: '₴';
+    display: inline-flex;
+    align-items: flex-end;
+    margin-left: .5rem;
+}
+
+.remove-element {
+    font-size: 1.2rem;
+    padding: 15px;
+    background-color: orangered;
+    color: white;
+    transition: all .3s;
+    border-radius: .3rem;
+}
+
+.remove-element:hover {
+    background-color: crimson;
+}
+
+.remove-element:active {
+    color: silver;
+    background-color: #dc143c;
+}
+
+.close-cart-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 0 .5rem 0 0;
+    background: red;
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: all .3s;
+    z-index: 400;
+}
+
+.close-cart-btn:hover {
+    background-color: #ed2c2c;
+}
+
+.close-cart-btn:active {
+    color: silver;
 }
 
 .burger-menu {
@@ -670,7 +849,7 @@ button {
     }
 }
 
-@media (max-width: 440px) {
+@media (max-width: 455px) {
     
     .product-list-elem {
         width: initial;
