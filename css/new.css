@@ -172,6 +172,7 @@ button {
     align-items: center;
     width: 100%;
     font-size: 4rem;
+    height: 450px;
 }
 
 .total-price {
@@ -801,6 +802,29 @@ button {
     }
 }
 
+@media (max-width:850px) {
+    .product-element {
+        flex-direction: column;
+    }
+
+    .product-content,
+    .total-elements {
+        justify-content: center;
+    }
+    .total-elements {
+        margin: 2rem 0;
+    }
+
+    .total-price {
+        font-size: 1.7rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .remove-element {
+        width: 70%;
+    }
+}
+
 @media (max-width: 660px) {
     html {
         font-size: 12px;
@@ -850,7 +874,19 @@ button {
 }
 
 @media (max-width: 455px) {
-    
+
+    .product-content {
+        flex-direction: column;
+    }
+
+    .product-img {
+        margin-right: 0;
+    }
+
+    .product-element__link {
+        text-align: center;
+    }
+
     .product-list-elem {
         width: initial;
         height: initial;
