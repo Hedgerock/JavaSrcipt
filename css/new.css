@@ -173,6 +173,7 @@ button {
     width: 100%;
     font-size: 4rem;
     height: 450px;
+    text-align: center;
 }
 
 .total-price {
