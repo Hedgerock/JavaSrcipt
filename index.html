@@ -8,42 +8,29 @@
     <title>JavaScript</title>
 </head>
 <body>
-    <div class="header">
-        <div class="shop-title">
-            <img class="shop-title__img" src="./img/shopTitle.avif" alt ="">
-        </div>
-        <div class = "shop-content">
-            <button class = "burger-menu">
-                <i class = "burger-menu__icon fa-solid fa-bars"></i>
-            </button>
-            <ul class="main-menu"></ul>
-            <button class="cart-button">
-                <i class = "cart-button__icon fa-solid fa-cart-shopping"></i>
-            </button>
-            <button class="compare-button">
-                <i class="compare-button__icon fa-solid fa-scale-balanced"></i>
-            </button>
-        </div>
-    </div>
-    <div class="container">
-        <div class = slider>
-            <div class="slider-slides"></div>
-            <div class="dots"></div>
-            <div class="slider-buttons">
-                <button class="slider-buttons__button slider-buttons__button_prev">
-                    <i class="fa-solid fa-chevron-left"></i>
-                </button>
-                <button class="slider-buttons__button slider-buttons__button_next">
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
-            </div>
-        </div>
-        <div class="box"></div>
-        <button class="show-content">show posts</button>
-    </div>
-    <div class="content"></div>
+    <div class="header"></div>
+    <div class="container"></div>
     <div class="product-list"></div>
-    <script src="./content.js"></script>
-    <script src="./script/index-eleventh.js"></script>
+
+    <script src="./script/commonElements.js"></script>
+    <script src="./script/content.js"></script>
+
+    <script src="./script/functions/utils.js"></script>
+
+    <script src="./script/functions/header/renderHeader.js"></script>
+    <script src="./script/functions/header/renderHeaderMenu.js"></script>
+    <script src="./script/functions/header/renderCart.js"></script>
+
+    <script src="./script/functions/containerSlider&Accordion/renderContainer.js"></script>
+    <script src="./script/functions/containerSlider&Accordion/sliderContentRender.js"></script>
+    <script src="./script/functions/containerSlider&Accordion/sliderNavigation.js"></script>
+    <script src="./script/functions/containerSlider&Accordion/accordionRender.js"></script>
+    <script src="./script/functions/containerSlider&Accordion/accordionNavigation.js"></script>
+
+    <script src="./script/functions/products/renderProducts.js"></script>
+    <script src="./script/functions/products/addToCartProduct.js"></script>
+    <script src = "./script/functions/products/initProductInCartBlock.js"></script>
+    
+    <script src="./script/index.js"></script>
 </body>
 </html>

@@ -53,7 +53,7 @@ button {
     position: relative;
 }
 
-.elements-in-cart {
+.cart-layout {
     position: absolute;
     top: 0;
     left: 0;
@@ -74,23 +74,39 @@ button {
     position: absolute;
     transform: translate(-50%, -50%);
     z-index: 200;
-    overflow: auto;
     flex-direction: column;
     padding: 4rem 1rem 1rem 1rem;
     width: 100%;
-    height: 550px;
+    height: 650px;
 }
 
 .elements-in-cart-block {
     padding: 2rem 1rem;
     width: 100%;
+    max-height: 450px;
     position: absolute;
-    top: 5%;
+    top: 10%;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     align-items: center;
     flex-direction: column;
+    overflow: auto;
+}
+
+.sum {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 2rem;
+    color: green;
+    width: 40%;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border-radius: .5rem;
 }
 
 .product-element {
@@ -101,6 +117,19 @@ button {
     background: white;
     border-radius: .5rem;
     width: 100%;
+}
+
+.product-position {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1.5rem;
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    padding: .3rem;
+    border-radius: 50%;
+    border: 1px solid black;
 }
 
 .product-content {
@@ -289,14 +318,14 @@ button {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    max-width: 1400px;
+    max-width: 1600px;
     margin: 0 auto;
     position: relative;
 }
 
 .slider-slides {
     width: 100%;
-    height: 400px;
+    height: 450px;
     position:relative;
     border: 1px solid;
     border-radius: .4rem;
@@ -442,7 +471,7 @@ button {
     flex-direction: column;
     align-items: flex-end;
     font-family: sans-serif;
-    max-width: 1400px;
+    max-width: 1600px;
     margin: 0 auto;
     margin-top: 3.5rem;
 
@@ -666,6 +695,12 @@ button {
     margin-bottom: 1.5rem;
 }
 
+.stars__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .stars::after {
     content: attr(data-comments);
     display: inline-flex;
@@ -721,6 +756,9 @@ button {
     font-size: 1.3rem;
     padding: .5rem;
     border-radius: .3rem;
+    min-width: 40px;
+    min-height: 25px;
+    transition: all .3s;
 }
 
 .product-info__order:hover {
@@ -878,6 +916,7 @@ button {
 
     .product-content {
         flex-direction: column;
+        width: 100%;
     }
 
     .product-img {
@@ -891,6 +930,11 @@ button {
     .product-list-elem {
         width: initial;
         height: initial;
+    }
+
+    .product-position {
+        align-self: start;
+        margin-right: 0;
     }
 
     .product-picture {
