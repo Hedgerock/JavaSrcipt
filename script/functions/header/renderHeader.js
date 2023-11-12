@@ -5,6 +5,8 @@ const headerMenu = document.createElement('ul');
 const headerCart = document.createElement('button');
 const headerCompare = document.createElement('button');
 
+let countForCart = 0;
+let productIndex= 1;
 
 headerLogo.className = 'shop-title';
 headerLogo.innerHTML = '<img class="shop-title__img" src="./img/shopTitle.avif" alt ="">'
@@ -23,6 +25,12 @@ headerCart.innerHTML = `
 <span></span>
 `
 headerCart.onclick = function() {
+    if (countForCart == 0) {
+        sum.style = 'display: none';
+    } else {
+        sum.style = 'display: flex';
+    }
+
     window.scrollTo(0, 0);
     document.body.style = 'overflow: hidden';
 

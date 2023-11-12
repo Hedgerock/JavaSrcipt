@@ -82,9 +82,11 @@ function initProductInCartBlock(parentElSelector, dataObj, product, countInCart,
         if (countForCart == 0) {
             countInCart.innerHTML = '';
             elementsInCartBlockTitle.style = 'display:flex';
+            sum.style = 'display: none';
             productIndex = 1;
         } else {
             countInCart.innerHTML = countForCart;
+            sum.style = 'display: flex';
         } 
 
         product.innerHTML = '<i class="fa-solid fa-cart-shopping"></i>';
@@ -92,7 +94,7 @@ function initProductInCartBlock(parentElSelector, dataObj, product, countInCart,
         updateCartCount();
         let result = updatetotalSum();
         if (result == '0') {
-            sum.innerHTML = ''
+            sum.style = 'display: none';
         } else {
             sum.innerHTML =`Total: ${result} ₴`;
         }

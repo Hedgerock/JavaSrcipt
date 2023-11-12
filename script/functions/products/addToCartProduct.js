@@ -1,6 +1,3 @@
-let countForCart = 0;
-let productIndex= 1;
-
 function addToCart() {
     const availableProducts = document.querySelectorAll('.product-info__order');
     const cartBtn = document.querySelector('.cart-button');
@@ -21,8 +18,10 @@ function addToCart() {
                 if (countForCart == 0) {
                     totalElements.innerHTML = '';
                     elementsInCartBlockTitle.style = 'display:flex';
+                    sum.style = 'display: none';
                 } else {
                     totalElements.innerHTML = countForCart;
+                    sum.style = 'display: flex';
                 }
                 return;
             }
@@ -33,6 +32,7 @@ function addToCart() {
             elementsInCartBlockTitle.style = 'display:none';
             isProductInCart = true;
             sum.innerHTML = `Total: ${updatetotalSum()} ₴`;
+            updateCartCount();
         }
     })
 }
