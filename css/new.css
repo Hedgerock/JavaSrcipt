@@ -914,6 +914,10 @@ button {
 
 @media (max-width: 455px) {
 
+    .sum {
+        width: 60%;
+    }
+
     .product-content {
         flex-direction: column;
         width: 100%;
