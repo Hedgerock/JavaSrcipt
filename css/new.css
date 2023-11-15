@@ -629,6 +629,7 @@ button {
     max-width: 1600px;
     margin: 0 auto;
     margin-top: 3.5rem;
+    display: none;
 
 }
 
@@ -660,13 +661,41 @@ button {
     margin-bottom: 1.5rem;
 }
 
+.accordion-block-container-flex {
+    display: flex;
+    align-items: center;
+}
+
+.accordion-block-img {
+    width: 450px;
+    height: 200px;
+}
+
+.accordion-block-img__picture {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 .accordion-block__text {
     color: white;
 }
 
+.accordion-block__link {
+    align-self: flex-end;
+    background: orangered;
+    border-radius: .4rem;
+    padding: .6rem 0;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    color: white;
+    align-items: center;
+}
+
 .accordion-block_visible {
     opacity: 1;
-    height: 6rem;
+    height: 20rem;
 }
 
 .box-item:not(:last-child) {
