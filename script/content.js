@@ -104,16 +104,22 @@ const sliderContent = [
 
 const accordionElements = [
     {
-        title: 'Promo',
+        title: 'PC',
         text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid nulla eius, reiciendis magnam, totam animi officiis, illum quasi iusto',
+        link: '#',
+        src: './img/img-promo-pc.webp'
     },
     {
-        title: 'Promo',
+        title: 'Generators',
         text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid nulla eius, reiciendis magnam, totam animi officiis, illum quasi iusto',
+        link: '#',
+        src: './img/img-promo-generator.webp'
     },
     {
-        title: 'Promo',
+        title: 'TV',
         text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid nulla eius, reiciendis magnam, totam animi officiis, illum quasi iusto',
+        link: '#',
+        src: './img/img-promo-tv.avif'
     },
 ]   
 
