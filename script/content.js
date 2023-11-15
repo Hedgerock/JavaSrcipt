@@ -17,6 +17,39 @@ const mainMenu = [
     },
 ]
 
+const inputs = [
+    {
+        type: 'text',
+        inputName: 'userFirstName',
+        placeholder: 'Enter your first name',
+        labelContent: 'First name:'
+    },
+    {
+        type: 'text',
+        inputName: 'userLastName',
+        placeholder: 'Enter your last name',
+        labelContent: 'Last name:'
+    },
+    {
+        type: 'password',
+        inputName: 'userPassword',
+        placeholder: 'Enter your password',
+        labelContent: 'Password:'
+    },
+    {
+        type: 'email',
+        inputName: 'userEmail',
+        placeholder: 'Enter your email',
+        labelContent: 'Email:'
+    },
+    {
+        type: 'number',
+        inputName: 'userPhone',
+        placeholder: 'Enter your phone number',
+        labelContent: 'Phone number:'
+    },
+]
+
 const sliderContent = [
     {
         picture: "./img/promo1.jpg",

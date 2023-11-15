@@ -5,8 +5,14 @@ function headerMenuContent(parentEl, dataObj) {
     }
 
     const headerMenuElement = document.createElement('li');
+    const headerMenuLink = document.createElement('a');
+
     headerMenuElement.className = 'menu-element';
-    headerMenuElement.innerHTML = `<a class = "menu-element__link" href = ${dataObj.link}>${dataObj.title}</a>`;
+
+    headerMenuLink.className = 'menu-element__link';
+    headerMenuLink.setAttribute('href', dataObj.link);
+    headerMenuLink.textContent = dataObj.title;
 
     parentEl.append(headerMenuElement);
+    headerMenuElement.append(headerMenuLink);
 }

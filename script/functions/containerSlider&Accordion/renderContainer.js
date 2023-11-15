@@ -3,7 +3,9 @@ const sliderSlides = document.createElement('div');
 const dots = document.createElement('div');
 const sliderBtns = document.createElement('div');
 const sliderBtnPrev = document.createElement('button');
+const sliderBtnPrevIcon = document.createElement('i');
 const sliderBtnNext = document.createElement('button');
+const sliderBtnNextIcon = document.createElement('i');
 const box = document.createElement('div');
 
 sliderBlock.className = 'slider';
@@ -12,10 +14,10 @@ dots.className = 'dots';
 sliderBtns.className = 'slider-buttons';
 
 sliderBtnPrev.className = 'slider-buttons__button slider-buttons__button_prev';
-sliderBtnPrev.innerHTML = '<i class="fa-solid fa-chevron-left"></i>';
+sliderBtnPrevIcon.className = 'fa-solid fa-chevron-left';
 
 sliderBtnNext.className = 'slider-buttons__button slider-buttons__button_next';
-sliderBtnNext.innerHTML = '<i class="fa-solid fa-chevron-right"></i>';
+sliderBtnNextIcon.className = 'fa-solid fa-chevron-right';
 
 box.className = 'box';
 
@@ -25,4 +27,6 @@ function initSlider(parentElSelector) {
     parentEl.append(sliderBlock, box);
     sliderBlock.append(sliderSlides, sliderSlides, dots, sliderBtns);
     sliderBtns.append(sliderBtnPrev, sliderBtnNext);
+    sliderBtnPrev.append(sliderBtnPrevIcon);
+    sliderBtnNext.append(sliderBtnNextIcon);
 }

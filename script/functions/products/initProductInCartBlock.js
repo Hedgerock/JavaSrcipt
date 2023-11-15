@@ -1,4 +1,4 @@
-function initProductInCartBlock(parentElSelector, dataObj, product, countInCart, event) {
+function initProductInCartBlock(parentElSelector, dataObj, productChild, countInCart, event) {
     const parentEl = elementContainer.querySelector(parentElSelector);
 
     if (!parentEl) {
@@ -14,8 +14,10 @@ function initProductInCartBlock(parentElSelector, dataObj, product, countInCart,
     const productElementLink = document.createElement('a');
     const totalElements = document.createElement('div');
     const totalElementRemoveElBtn = document.createElement('button');
+    const totalElementRemoveElBtnIcon = document.createElement('i');
     const totalElementsCurrentValue = document.createElement('span');
     const totalElementAddElBtn = document.createElement('button');
+    const totalElementAddElBtnIcon = document.createElement('i');
     const totalPrice = document.createElement('div');
     const removerElement = document.createElement('button');
 
@@ -23,7 +25,7 @@ function initProductInCartBlock(parentElSelector, dataObj, product, countInCart,
     productContent.className = 'product-content';
 
     productPosition.className = 'product-position';
-    productPosition.innerHTML = productIndex;
+    productPosition.textContent = productIndex;
     productIndex++;
 
     productImg.className = 'product-img';
@@ -34,21 +36,21 @@ function initProductInCartBlock(parentElSelector, dataObj, product, countInCart,
 
     productElementLink.className = 'product-element__link';
     productElementLink.setAttribute('href', dataObj.href);
-    productElementLink.innerHTML = dataObj.title;
+    productElementLink.textContent = dataObj.title;
 
     totalElements.className = 'total-elements';
 
     totalElementsCurrentValue.className = 'total-elements__current-value';
-    totalElementsCurrentValue.innerHTML = 1;
+    totalElementsCurrentValue.textContent = 1;
 
     totalElementRemoveElBtn.className = 'total-elements__btn total-elements__btn_remove';
-    totalElementRemoveElBtn.innerHTML = '<i class="fa-solid fa-minus"></i>';
+    totalElementRemoveElBtnIcon.className = 'fa-solid fa-minus'
 
-    let countProduct = Number(totalElementsCurrentValue.innerText);
+    let countProduct = Number(totalElementsCurrentValue.textContent);
     let price = dataObj.currentPrice;
 
     totalPrice.className = 'total-price';
-    totalPrice.innerHTML = price;
+    totalPrice.textContent = price;
 
     totalElementRemoveElBtn.onclick = function() {
         if (countProduct == 1) {
@@ -58,11 +60,11 @@ function initProductInCartBlock(parentElSelector, dataObj, product, countInCart,
         countProduct--;
         countForCart--;
         calculator(dataObj, countProduct, totalPrice, price, totalElementsCurrentValue, countInCart, countForCart);
-        sum.innerHTML = `Total: ${updatetotalSum()} ₴`;
+        sum.textContent = `Total: ${updatetotalSum()} ₴`;
     }
 
     totalElementAddElBtn.className = 'total-elements__btn total-elements__btn_add';
-    totalElementAddElBtn.innerHTML = '<i class="fa-solid fa-plus"></i>';
+    totalElementAddElBtnIcon.className = 'fa-solid fa-plus'
 
     totalElementAddElBtn.onclick = function() {
         if (countProduct == 10) {
@@ -72,31 +74,31 @@ function initProductInCartBlock(parentElSelector, dataObj, product, countInCart,
         countProduct++;
         countForCart++;
         calculator(dataObj, countProduct, totalPrice, price, totalElementsCurrentValue, countInCart, countForCart);
-        sum.innerHTML = `Total: ${updatetotalSum()} ₴`;
+        sum.textContent = `Total: ${updatetotalSum()} ₴`;
     }
 
     removerElement.className = 'remove-element';
-    removerElement.innerHTML = 'remove from cart';
+    removerElement.textContent = 'remove from cart';
     removerElement.onclick = function() {
         countForCart = countForCart - countProduct;
         if (countForCart == 0) {
-            countInCart.innerHTML = '';
-            elementsInCartBlockTitle.style = 'display:flex';
-            sum.style = 'display: none';
+            countInCart.textContent = '';
+            elementsInCartBlockTitle.classList.remove('element-in-cart-block__title_hidden')
+            sum.classList.add('sum_hidden')
             productIndex = 1;
         } else {
-            countInCart.innerHTML = countForCart;
-            sum.style = 'display: flex';
+            countInCart.textContent = countForCart;
+            sum.classList.remove('sum_hidden');
         } 
 
-        product.innerHTML = '<i class="fa-solid fa-cart-shopping"></i>';
+        productChild.className = 'fa-solid fa-cart-shopping';
         productEl.remove();
         updateCartCount();
         let result = updatetotalSum();
         if (result == '0') {
-            sum.style = 'display: none';
+            sum.classList.add('sum_hidden')
         } else {
-            sum.innerHTML =`Total: ${result} ₴`;
+            sum.textContent =`Total: ${result} ₴`;
         }
         event();
     }
@@ -107,15 +109,17 @@ function initProductInCartBlock(parentElSelector, dataObj, product, countInCart,
     productContent.append(productPosition,productImg, productElementLink);
     productImg.append(productImgPicture);
     totalElements.append(totalElementRemoveElBtn, totalElementsCurrentValue, totalElementAddElBtn);
+    totalElementRemoveElBtn.append(totalElementRemoveElBtnIcon);
+    totalElementAddElBtn.append(totalElementAddElBtnIcon);
 
     return productEl;
 }
 
 function calculator(dataObj, countProduct, totalPrice, price, totalElementsCurrentValue, countInCart, countForCart) {
     price = strToNum(dataObj.currentPrice) * countProduct;
-    totalPrice.innerHTML = numToStr(price);
-    totalElementsCurrentValue.innerHTML = countProduct;
-    countInCart.innerHTML = countForCart;
+    totalPrice.textContent = numToStr(price);
+    totalElementsCurrentValue.textContent = countProduct;
+    countInCart.textContent = countForCart;
 }
 
 function totalSum() {
@@ -123,7 +127,7 @@ function totalSum() {
     let result = 0;
 
     for (let i = 0; i < totalElementsValue.length; i++) {
-        result += totalElementsValue.innerText;
+        result += totalElementsValue.textContent;
     }
 
     return result;
