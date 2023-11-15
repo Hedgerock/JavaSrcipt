@@ -1,6 +1,7 @@
 header(headerSelector);
 renderContent(headerMenu, mainMenu, headerMenuContent);
 initCart();
+initSignUpBox();
 
 initSlider(containerSelector);
 
