@@ -66,8 +66,9 @@ function updatetotalSum() {
     return numToStr(totalSum);
 }
 
-function objectLoopValidation(obj, arr, booleanValue) {
-
+function objectLoopValidation(obj, arr) {
+    let booleanValue = true;
+    
     for (let item of obj) {
         const valueEl = item.value;
 

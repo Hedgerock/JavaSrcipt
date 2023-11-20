@@ -40,7 +40,7 @@ function initFormContent(signUpFieldset) {
         let inputsAreFull = true;
         const log = [];
 
-        inputsAreFull = objectLoopValidation(formInputs, log, inputsAreFull)
+        inputsAreFull = objectLoopValidation(formInputs, log)
 
         if (inputsAreFull) {
             console.log(log);
