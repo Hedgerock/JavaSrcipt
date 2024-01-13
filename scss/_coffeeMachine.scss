@@ -1,0 +1,261 @@
+.coffee-machine {
+    @include flex(center, flex-start);
+    flex-direction: column;
+    position: relative;
+    border: 1px solid;
+    border-radius: 1rem;
+    min-height: 600px;
+
+    &__title {
+        @include absolutePosition(0, 50%);
+        transform: translateX(-50%);
+
+        border: 1px solid silver;
+        font-size: 2.5rem;
+        padding: 1rem;
+        margin: .1rem 0 0 0;
+        border-radius: .5rem;
+
+        min-width: 215px;
+
+        text-align: center;
+    }
+
+    &__switch-btn {
+        width: 50%;
+        height: 100%;
+        color: white;
+
+        &_on {
+            background: #1e961e;
+            border-top-left-radius: .5rem;
+            border-bottom-left-radius: .5rem;
+        }
+
+        &_off {
+            background: #d92626;
+            border-top-right-radius: .5rem;
+            border-bottom-right-radius: .5rem;
+        }
+    }
+
+    &__do-coffee {
+        @include absolutePosition(78%, 10%);
+        width: 150px;
+        height: 2rem;
+        background: green;
+        border-radius: .4rem;
+        color: white;
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+}
+
+.power-status {
+    @include absolutePosition(0, 0);
+    &::before {
+        @include flex;
+
+        width: 250px;
+        height: 2rem;
+        content: 'Status:' attr(data-power);
+
+        border: 1px solid silver;
+        border-radius: 2rem;
+    }
+}
+
+.information-screen {
+    @include absolutePosition(30%, 50%);
+    transform: translate(-50%, -50%);
+
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+
+    text-align: center;
+
+    color: green;
+    background: black;
+    border: 6px solid grey;
+    border-radius: 1.5rem;
+    padding: .5rem;
+
+    @include flex;
+    flex-direction: column;
+
+    width: 500px;
+    height: 6rem;
+
+    &::before {
+        content: attr(data-coffee);
+    }
+
+    &::after {
+        content: attr(data-sugar);
+    }
+
+    &_invisible {
+        &::before,
+        &::after {
+            display: none;
+        }
+    }
+}
+
+.buttons {
+    @include flex;
+    width: 250px;
+    height: 2rem;
+
+    @include absolutePosition(6%, 0);
+}
+
+.water-control {
+    @include absolutePosition(75%, 80%);
+    width: 250px;
+    height: 30px;
+
+    transform: rotate(270deg);
+
+    &__restore-btn {
+        @include absolutePosition(-80px, 0);
+
+        transform: rotate(-270deg);
+
+        border: 1px solid silver;
+        background: #6767e7;
+        color: white;
+        padding: .5rem;
+
+        border-radius: .6rem;
+    }
+}
+
+.sugar-control {
+    @include absolutePosition(55%, 50%);
+    @include flex;
+    flex-direction: column;
+    transform: translate(-50%, -50%);
+
+    width: 150px;
+    height: 7rem;
+
+    border: 1px solid;
+
+    &__title {
+        font-size: 2rem;
+    }
+
+    &__btn {
+        background: whitesmoke;
+        color: grey;
+    }
+
+    &__total {
+        @include flex;
+        display: inline-flex;
+        margin: 0 .5rem;
+        width: 50px;
+
+    }
+
+    &__btn, &__total {
+        border: 1px solid grey;
+        border-radius: .4rem;
+        padding: .5rem;
+    }
+}
+
+.sugar-buttons {
+    margin-top: 1rem
+}
+
+.coffee-selection {
+    @include absolutePosition(45%, 0);
+    @include flex(space-between, flex-start);
+    flex-wrap: wrap;
+    padding: 1rem;
+    border: 3px solid silver;
+    border-radius: 1.5rem;
+
+    width: 300px;
+    min-height: 150px;
+
+    &__element {
+        width: calc(100% / 3);
+
+        & label {
+            @include flex(space-between);
+            flex-direction: column;
+            text-align: center;
+            padding: .5rem;
+
+            height: 4.5rem;
+
+            border: 1px solid silver;
+        }
+    }
+}
+
+.dispensing-window {
+    @include absolutePosition(70%, 50%);
+    transform: translateX(-50%);
+
+    width: 150px;
+    height: 180px;
+    background: grey;
+    
+    border: 5px solid silver;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+
+    &::before {
+        @include absolutePosition(0, 50%);
+        transform: translateX(-50%);
+
+        content: '';
+
+        width: 10px;
+        height: 30px;
+        background: silver;
+    }
+}
+
+.cup {
+    @include absolutePosition(44.5%, 50%);
+    transform: translateX(-50%);
+    border: 1px solid grey;
+
+    width: 70px;
+    height: 100px;
+
+    background: white;
+
+    &__title {
+        @include absolutePosition(50%, 50%);
+        font-size: .6rem;
+        transform: translate(-50%, -50%);
+    }
+
+    &__sugar-amount {
+        width: 100%;
+
+        @include absolutePosition(65%, 70%);
+        transform: translate(-50%, -50%);
+
+        font-size: .8rem;
+    }
+
+    &::before {
+        content: '';
+        @include absolutePosition(-10px, 0);
+
+        width:69.5px;
+        height: 20px;
+        background: rgb(179, 127, 127);
+        border-radius: 50%;
+    }
+}

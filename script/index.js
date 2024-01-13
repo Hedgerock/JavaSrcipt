@@ -1,17 +1,7 @@
-header(headerSelector);
-renderContent(headerMenu, mainMenu, headerMenuContent);
-initCart();
-initSignUpBox();
+import { coffeeMachines } from "./data.js";
+import { CoffeeMachineMaker } from "./class.js";
 
-initSlider(containerSelector);
-
-renderContent(sliderSelector, sliderContent, slideCreator);
-dotsNavigation();
-prevBtnNavigation();
-NextBtnNavigation();
-
-renderContent(box, accordionElements, boxItemRender);
-accordionFunc();
-
-renderContent(productsSelector, products, productsBlock);
-addToCart();
+coffeeMachines.forEach(item => {
+    const newEl = new CoffeeMachineMaker(item.type, item.coffeeTypes, item.waterVolume, item.currentVolume, item.passport);
+    newEl.buildMachine();
+})
