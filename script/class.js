@@ -28,7 +28,7 @@ export class CoffeeMachineMaker {
     }
 
     buildMachine () {
-        const container = document.querySelector('.container')
+        const container = document.querySelector('.container-coffee-machine')
         const parent = document.createElement('div');
         parent.className = 'coffee-machine'
 
