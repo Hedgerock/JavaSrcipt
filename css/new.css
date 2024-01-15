@@ -18,7 +18,7 @@ li {
   list-style-type: none;
 }
 
-.container {
+.container-coffee-machine {
   max-width: 800px;
   margin: 0 auto;
 }
@@ -33,6 +33,42 @@ button:disabled {
   background: silver;
   color: grey;
   pointer-events: none;
+}
+
+.header {
+  max-width: 800px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 2rem;
+}
+
+.current-homework {
+  padding: 0.4rem 2rem;
+  border: 1px solid #8c8cd8;
+  border-radius: 0.4rem;
+  border-radius: 0.4rem;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  font-weight: bold;
+}
+.current-homework:hover {
+  background: #8c8cd8;
+  color: white;
+}
+.current-homework_back {
+  border: 1px solid #6ca56c;
+  color: #6ca56c;
+}
+.current-homework_back:hover {
+  background: #6ca56c;
 }
 
 .coffee-machine {
