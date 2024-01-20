@@ -436,6 +436,7 @@ button {
 
 .image-block {
     height: 150px;
+    cursor: pointer;
 }
 
 .image-block_big {

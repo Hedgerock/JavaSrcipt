@@ -2,7 +2,7 @@ const mainPart = document.querySelector('.main-part');
 
 const gif = document.createElement('img');
 gif.className = 'gif';
-gif.src = '../pictures/preloader.gif';
+gif.src = '/pictures/preloader.gif';
 
 export function fetchFunction(url, func, renderFunc, elFunc) {
     setTimeout(() => {
