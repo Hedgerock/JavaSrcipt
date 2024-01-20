@@ -24,12 +24,20 @@
         color: white;
     }
 
+    &:not(:last-child) {
+        margin-right: .6rem;
+    }
+
     &_back {
         border: 1px solid #6ca56c;
         color: #6ca56c;
 
         &:hover {
             background: #6ca56c;
+        }
+
+        &:not(:last-child) {
+            margin-right: .6rem;
         }
     }
 }
