@@ -7,7 +7,7 @@
 
 body {
   font-family: sans-serif;
-  padding: 2rem 0;
+  padding: 5rem 0 2rem 0;
 }
 
 a {
@@ -63,12 +63,18 @@ button:disabled {
   background: #8c8cd8;
   color: white;
 }
+.current-homework:not(:last-child) {
+  margin-right: 0.6rem;
+}
 .current-homework_back {
   border: 1px solid #6ca56c;
   color: #6ca56c;
 }
 .current-homework_back:hover {
   background: #6ca56c;
+}
+.current-homework_back:not(:last-child) {
+  margin-right: 0.6rem;
 }
 
 .coffee-machine {
