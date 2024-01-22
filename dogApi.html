@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./scss/css/style.min.css">
+    <title>Homework(dog API)</title>
+</head>
+<body>
+    <div class="skeleton">
+        <div class="header">
+            <a href="./index.html" class="current-homework current-homework_dog-api">main page</a>
+            <a href="./homework.html" class="current-homework current-homework_dog-api">class extension</a>
+            <a href="./fetch.html" class="current-homework current-homework_dog-api">fetch</a>
+        </div>
+    
+        <div class="fetch-buttons fetch-buttons_flex-columns">
+            <div class="options">
+                <button class="fetch-buttons__current-btn fetch-buttons__current-btn_pictures fetch-buttons__current-btn_dog-api">dog Pictures</button>
+                <label class = "fetch-label">
+                    <span class="fetch-label__question">How many dogs do you want ?)</span>
+                    <input type="number" class="fetch-label__input" placeholder="Enter here">
+                </label>
+            </div>
+            <label class="breed-selection">
+                I want a specific breed
+                <input type="checkbox" class="breed-selection__checkbox">
+            </label>
+        </div>
+        <div class="main-part"></div>
+    </div>
+    <script src="./script/dogApi-scripts/index.js" type="module"></script>
+</body>
+</html>

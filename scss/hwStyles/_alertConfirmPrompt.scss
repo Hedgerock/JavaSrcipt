@@ -1,0 +1,50 @@
+.window__alert-title,
+.window__confirm-title {
+    @include absolutePosition(30%, 50%);
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+
+    width: 80%;
+}
+
+.my-window {
+
+    &_prompt {
+        background: #8ab38a;
+        color: white;
+
+        width: 450px;
+        height: 200px;
+    }
+
+    &_alert {
+        background: #8a8ae5;
+        color: silver;
+
+        width: 320px;
+        height: 160px;
+    }
+
+    &_confirm {
+        background: #b063b0;
+        color: #b19b9b;
+
+        width: 600px;
+        height: 300px;
+    }
+}
+
+.window__confirm-title {
+    font-size: 2.5rem;
+}
+
+
+.text-alert {
+    @include absolutePosition(60%, 50%);
+    transform: translate(-50%, -50%);
+
+    width: 90%;
+
+    text-align: center;
+}

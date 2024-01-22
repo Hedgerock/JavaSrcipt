@@ -1,0 +1,33 @@
+.main-part {
+    margin-top: 3rem;
+
+    &_posts {
+        @include flex(space-between, flex-start);
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    &_pictures {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 2rem;
+    }
+
+    &_comments {
+        @include flex(center, flex-end);
+        flex-direction: column;
+    }
+}
+
+.options,
+.user-info {
+    @include flex(flex-start);
+}
+
+.options {
+    width: 100%;
+}
+
+.user-info {
+    margin-bottom: 1rem;
+}

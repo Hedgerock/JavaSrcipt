@@ -1,0 +1,60 @@
+.label {
+    @include absolutePosition(40%, 50%);
+    width: 80%;
+    height: 2rem;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: .3rem;
+
+    &_error {
+        border: 3px solid #db6161;
+
+        &::before {
+            @include absolutePosition(-25px, initial, initial, 0);
+            content: attr(data-error);
+            color: #db6161;
+            font-weight: bold;
+        }
+    }
+}
+
+.label input {
+    width: 100%;
+    height: 100%;
+
+    border-radius: .3rem;
+
+    background: white;
+    border: 1px solid silver;
+}
+
+.fetch-label {
+    @include flex(flex-start, flex-start);
+    flex-direction: column;
+    position: relative;
+
+    &__input {
+        margin-right: .5rem;
+        width: 250px;
+        padding-left: .5rem;
+    }
+
+    &__question {
+        @include absolutePosition(-30px, 0);
+        position: absolute;
+        width: 250px;
+    }
+
+    &_warning input {
+        border: 2px solid orangered;
+    }
+}
+
+.fetch-label__input,
+select {
+    border: 2px solid silver;
+    border-radius: .6rem .6rem 0 0;
+    font-size: 1.2rem;
+    height: 2rem;
+}

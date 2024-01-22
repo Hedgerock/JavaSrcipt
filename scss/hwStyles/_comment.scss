@@ -1,0 +1,31 @@
+.comment-block {
+    @include flex(center, flex-start);
+    flex-direction: column;
+
+    border: 1px solid silver;
+    border-radius: .5rem;
+
+    padding: 1rem;
+
+    width: 75%;
+
+    &__user-name {
+        margin-right: .5rem;
+        font-weight: bold;
+    }
+
+    &__user-text {
+        padding: .5rem;
+        max-height: 10rem;
+        overflow-y: auto;
+    }
+
+    &:nth-child(odd) {
+        align-self: flex-start;
+        background: #e9e3e3;
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 1.5rem;
+    }
+}

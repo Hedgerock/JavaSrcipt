@@ -206,13 +206,24 @@ export class CoffeeMachineMaker {
     setInputsStatus (inputs) {
         inputs.forEach(item => {
             this.checkOn() ? item.removeAttribute('disabled') : item.setAttribute('disabled', '');
-            
+        })
+
+        const buttons = document.querySelectorAll('.sugar-control__btn');
+
+        buttons.forEach(btn => {
+            this.checkOn() ? btn.removeAttribute('disabled') : btn.setAttribute('disabled', '');
         })
     }
 
     getDisabledStatus (inputs) {
         inputs.forEach(item => {
             item.setAttribute('disabled', '');
+        })
+
+        const buttons = document.querySelectorAll('.sugar-control__btn');
+
+        buttons.forEach(btn => {
+            btn.setAttribute('disabled', '');
         })
     }
 

@@ -13,7 +13,9 @@ export function renderElements(json, func, elFunc) {
 
 export function renderDom(json, func) {
     mainPart.removeAttribute('class');
-    json.forEach((item, index) => {func(item, index)})
+    Array.isArray(json)
+    ? json.forEach((item, index) => {func(item, index)})
+    : [json].forEach((item, index) => {func(item, index)})
 }
 
 export function renderContent(json) {

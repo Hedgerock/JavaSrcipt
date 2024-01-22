@@ -1,4 +1,4 @@
-import { ModalWindow } from "./modalWindow.js";
+import { ModalWindow } from "./ModalWindow.js";
 
 export class Confirm extends ModalWindow {
     create() {

@@ -1,0 +1,61 @@
+.container {
+    @include flex(space-around);
+    position: relative;
+
+    max-width: 800px;
+    margin: 0 auto;
+
+    background: var(--backgroundColor);
+
+    height: 600px;
+
+    border: 1px solid;
+    border-radius: 3rem;
+
+    &__title {
+        @include absolutePosition(30px, 50%);
+        transform: translateX(-50%);
+
+        text-align: center;
+
+        color: var(--textColor);
+    }
+
+    &__select-btn {
+        width: 170px;
+        height: 38px;
+
+        border: 1px solid silver;
+
+        transition: all .3s;
+
+        color: var(--textColor);
+        font-weight: bold;
+        background: var(--btnsBackground);
+
+        &:hover {
+            color: white;
+        }
+
+        &_alert {
+
+            &:hover {
+                background: #8a8ae5;
+            }
+        }
+
+        &_prompt {
+
+            &:hover {
+                background: #8ab38a;
+            }
+        }
+
+        &_confirm {
+
+            &:hover {
+                background: #b063b0;
+            }
+        }
+    }
+}

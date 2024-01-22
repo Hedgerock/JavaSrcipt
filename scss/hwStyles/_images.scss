@@ -1,0 +1,25 @@
+.image-block {
+    height: 150px;
+    cursor: pointer;
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+        border-radius: .5rem;
+        border: 4px solid silver;
+
+        box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    }
+
+    &_big {
+        height: 100%;
+        padding: 1.5rem;
+        cursor: default;
+
+        & img {
+            box-shadow: none;
+        }
+    }
+}
