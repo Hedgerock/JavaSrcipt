@@ -11,3 +11,11 @@
     bottom: $b;
     right: $r;
 }
+
+@mixin initPosition ($p: static, $t:initial, $l:initial, $b:initial, $r:initial) {
+    position: $p;
+    top: $t;
+    left: $l;
+    bottom: $b;
+    right: $r;
+}

@@ -1,0 +1,52 @@
+.content-box {
+    @include initPosition(fixed, 50%, 50%);
+    transform: translate(-50%, -50%);
+
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+
+    z-index: 20;
+
+    background: white;
+
+    height: 500px;
+
+    padding: 1rem;
+
+    &__title {
+        @include flex;
+
+        height: 2rem;
+        width: 100%;
+
+        padding: .5rem;
+
+        text-decoration: underline;
+
+        margin: .7rem 0 2rem 0;
+    }
+
+    &__body {
+        width: 100%;
+        height: 80%;
+        white-space: wrap;
+        overflow: auto;
+
+        padding: .8rem;
+        border: 1px solid silver;
+        border-radius: .6rem;
+    }
+
+    &__close-btn {
+        @include absolutePosition(0, initial, initial, 0);
+        color: white;
+        background: red;
+
+        border: none;
+
+        padding: .3rem 1rem;
+
+        font-weight: bold;
+    }
+}

@@ -6,20 +6,6 @@ export const coffeeMachines = [
         currentVolume: 3,
         passport: 'A32-7'
     },
-    {
-        type: 'Philips',
-        coffeeTypes: ['Capuchino', 'Classic', 'Irish Whiskey'],
-        waterVolume: 4,
-        currentVolume: 4,
-        passport: 'A46-1',
-    },
-    {
-        type: 'Samsung',
-        coffeeTypes: ['Mocha', 'McCoffee', 'Jacobs 3v1'],
-        waterVolume: 5,
-        currentVolume: 5,
-        passport: 'A32-8'
-    },
 ]
 
 export const coffeeVolume = {

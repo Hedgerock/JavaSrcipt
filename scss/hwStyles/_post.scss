@@ -1,0 +1,33 @@
+.post {
+    @include flex(flex-start);
+
+    padding: 1rem;
+
+    border: 1px solid silver;
+    border-radius: .8rem;
+
+    width: calc((100% - 1.5rem * 2) / 2);
+
+    cursor: pointer;
+
+    &__title {
+        max-width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    &__number {
+        @include flex;
+
+        margin-right: 1rem;
+
+        width: 32.5px;
+        height: 32.5px;
+
+        padding: 1rem;
+
+        border-radius: 50%;
+        border: 1px solid silver;
+    }
+}

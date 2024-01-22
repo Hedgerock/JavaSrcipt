@@ -1,0 +1,22 @@
+.options select {
+    width: 225px;
+    outline: none;
+}
+
+.options-select_invisible {
+    display: none;
+}
+
+.breed-selection {
+    margin-top: 1rem;
+    align-self: flex-start;
+
+    padding: .5rem;
+
+    border: 1px solid silver;
+    border-radius: .6rem;
+
+    &__checkbox {
+        margin-left: .5rem;
+    }
+}

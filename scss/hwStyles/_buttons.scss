@@ -1,0 +1,65 @@
+.btn-mode {
+    @include absolutePosition(15px, initial, initial, 25px);
+
+    font-size: 2rem;
+    border: none;
+    background: none;
+    color: var(--textColor);
+
+    transition: all .5s;
+}
+
+.close-btn {
+    @include absolutePosition(0, initial, initial, 0);
+
+    width: 60px;
+    height: 1.5rem;
+
+    background: #db6161;
+    color: white;
+    border: 1px solid silver;
+
+    transition: all .5s;
+}
+
+.buttons {
+    @include absolutePosition(60%, 50%);
+    @include flex(space-between);
+    transform: translate(-50%, -50%);
+
+    width: 80%;
+
+    & button {
+        width: 100px;
+        height: 2.5rem;
+
+        border: 1px solid silver;
+    }
+}
+
+.fetch-buttons {
+    @include flex(flex-start);
+    width: 100%;
+
+    &__current-btn {
+        padding: .5rem;
+        width: 120px;
+
+        border: 1px solid #2d2d68;
+        background: #8b8be0;
+        color: white;
+
+        &_dog-api {
+            border: 1px solid #91165a;
+            background: #c5488d;
+        }
+
+        &:not(:last-child) {
+            margin-right: 4rem;
+        }
+    }
+
+    &_flex-columns {
+        flex-direction: column;
+    }
+}
