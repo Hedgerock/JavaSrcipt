@@ -29,6 +29,30 @@
     border: 1px solid silver;
 }
 
+.label-edit {
+    width: 100%;
+    height: 100%;
+
+    border-radius: .8rem;
+
+    opacity: 1;
+
+    @include absolutePosition(0, 0);
+
+    z-index: 10;
+
+    &__checkbox {
+        width: 20px;
+        height: 20px;
+    }
+
+    cursor: pointer;
+}
+
+.label-box {
+    @include absolutePosition(-80px, 75%);
+}
+
 .fetch-label {
     @include flex(flex-start, flex-start);
     flex-direction: column;

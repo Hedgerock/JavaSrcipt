@@ -4,25 +4,25 @@ import { toCapitalize } from "../utils.js";
 const mainPart = document.querySelector('.main-part');
 
 
-export function renderElements(json, func, elFunc) {
+export function renderElements(json, func, elFunc, url) {
     if (mainPart.hasChildNodes()) {
         return
     }
-    func(json, elFunc);
+    func(json, elFunc, url);
 }
 
-export function renderDom(json, func) {
+export function renderDom(json, func, url) {
     mainPart.removeAttribute('class');
     Array.isArray(json)
-    ? json.forEach((item, index) => {func(item, index)})
-    : [json].forEach((item, index) => {func(item, index)})
+    ? json.forEach((item, index) => {func(url, item, index)})
+    : [json].forEach((item, index) => {func(url, item, index)})
 }
 
 export function renderContent(json) {
-    const {body, title} = json
+    const { body, title, id } = json
     const htmlBody = document.body;
     
-    const contentBox = initContentBox();
+    const contentBox = initContentBox(id);
     const layout = initLayout(contentBox);
     const closeBtn = initCloseBtn(contentBox, layout)
 
@@ -30,9 +30,9 @@ export function renderContent(json) {
     const contentBody = document.createElement('p');
 
     contentTitle.className = 'content-box__title';
-    contentTitle.textContent = toCapitalize(title);
+    contentTitle.textContent = title;
     contentBody.className = 'content-box__body';
-    contentBody.textContent = toCapitalize(body);
+    contentBody.innerHTML = body;
 
     htmlBody.append(layout, contentBox);
     contentBox.append(contentTitle, contentBody, closeBtn);
@@ -40,7 +40,7 @@ export function renderContent(json) {
     return layout;
 }
 
-export function renderPostTitles(item, index) {
+export function renderPostTitles(url, item, index) {
     mainPart.setAttribute('class', 'main-part main-part_posts')
 
     const { id, title } = item
@@ -53,7 +53,7 @@ export function renderPostTitles(item, index) {
     el.setAttribute('title', title)
 
     el.onclick = () => {
-        initPostContent(id, item)
+        initPostContent(url, id, item)
     }
 
     elNumber.className = 'post__number'

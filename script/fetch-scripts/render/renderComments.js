@@ -1,6 +1,6 @@
 const mainPart = document.querySelector('.main-part');
 
-export function renderComments(item) {
+export function renderComments(url, item) {
     mainPart.setAttribute('class', 'main-part main-part_comments')
 
     const { id, name, email, body } = item;

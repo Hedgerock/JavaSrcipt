@@ -11,7 +11,7 @@ export function fetchFunction(url, func, renderFunc, elFunc) {
             .then((response) => response.json())
             .then((json) => {
                 if (gif) {gif.remove()}
-                func(json, renderFunc, elFunc);
+                func(json, renderFunc, elFunc, url);
             });
     }, 1)
 }

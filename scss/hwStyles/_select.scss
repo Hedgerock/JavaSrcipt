@@ -7,7 +7,9 @@
     display: none;
 }
 
-.breed-selection {
+.breed-selection,
+.admin-label,
+.label-box {
     margin-top: 1rem;
     align-self: flex-start;
 
@@ -19,4 +21,8 @@
     &__checkbox {
         margin-left: .5rem;
     }
+}
+
+.label-box {
+    margin-top: 0;
 }
