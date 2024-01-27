@@ -2,7 +2,7 @@ import { initCloseBtn, initContentBox, initImg, initLayout, initPhotoContent } f
 
 const mainPart = document.querySelector('.main-part');
 
-export function renderPhoto(item) {
+export function renderPhoto(urlImg, item) {
     mainPart.setAttribute('class', 'main-part main-part_pictures')
 
     const { url, id } = item;
@@ -14,7 +14,7 @@ export function renderPhoto(item) {
 
     block.className = 'picture-block';
     block.onclick = () => {
-        initPhotoContent(id, item);
+        initPhotoContent(urlImg, id, item);
     }
 
     mainPart.append(block);

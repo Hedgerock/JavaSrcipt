@@ -4,7 +4,7 @@ import { initBigDog } from "./functions.js";
 
 const mainPart = document.querySelector('.main-part');
 
-export function renderDogs (item) {
+export function renderDogs (url, item) {
     mainPart.setAttribute('class', 'main-part main-part_pictures')
 
     const { message } = item;
@@ -30,7 +30,7 @@ export function renderSingleDog(el, index) {
     block.append(picture);
 }
 
-export function renderSelect(item) {
+export function renderSelect(url, item) {
     const parent = document.querySelector('.options');
     const select = document.createElement('select');
     select.className = 'options-select options-select_invisible'

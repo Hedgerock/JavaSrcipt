@@ -54,6 +54,11 @@
             background: #c5488d;
         }
 
+        &_newEl {
+            border: 1px solid #d27020;
+            background: orange;
+        }
+
         &:not(:last-child) {
             margin-right: 4rem;
         }
@@ -61,5 +66,9 @@
 
     &_flex-columns {
         flex-direction: column;
+    }
+
+    &_edit {
+        margin-bottom: 2.5rem;
     }
 }
