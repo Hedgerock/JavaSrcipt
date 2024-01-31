@@ -70,6 +70,15 @@ button {
     margin: 0 auto;
 }
 
+.container {
+
+    &_menu {
+        max-width: 1920px;
+        height: 100%;
+        margin: 0 auto;
+    }
+}
+
 .background {
     @include initPosition(fixed, 0, 0);
 

@@ -1,3 +1,4 @@
+import { toCapitalize } from "../../fetch-scripts/utils.js";
 import { imgFormat, mainPart } from "../data.js";
 import { createImg, createLink, createTopic } from "./createFunctions.js";
 import { getCount, getLinks } from "./getFunctions.js";
@@ -57,7 +58,7 @@ export function initBreadCrumbs(key, obj, newUrl) {
     const parentEl = document.querySelector('.bread-crumbs');
 
     const home = createLink('Home', '#');
-    const el = createLink(key, '#');
+    const el = createLink(toCapitalize(key), '#');
 
     backToList(mainPart, parentEl, el, key, obj, newUrl);
     console.log(newUrl);
