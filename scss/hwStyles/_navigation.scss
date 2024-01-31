@@ -1,0 +1,71 @@
+.navigation {
+    @include flex(space-between);
+}
+
+.bread-crumbs {
+    @include flex(flex-start);
+    height: 2rem;
+    
+    div {
+        @include flex;
+        height: 100%;
+
+        a {
+            font-size: 1.2rem;
+            position: relative;
+
+            color: white;
+            font-weight: bold;
+
+            &:hover {
+
+                &::before {
+                    width: 100%;
+                    transition: all .3s;
+                }
+            }
+
+            &::before {
+                @include absolutePosition(100%, 0);
+                content: '';
+                width: 0;
+                height: 2px;
+                background: cornflowerblue;
+                transition: all .3s;
+            }
+        }
+
+        &:not(:last-child) {
+
+            &::after {
+                margin: 0 1rem;
+                pointer-events: none;
+                font-family: 'Font Awesome 6 Free';
+                font-weight: 900;
+                content: '\f715';
+                color: white;
+            }
+        }
+
+        &:last-child {
+            pointer-events: none;
+            
+            a {
+                color: silver;
+            }
+        }
+    }
+}
+
+.pagination {
+
+    button {
+        width: 25px;
+        height: 25px;
+
+        &:disabled {
+            background: cornflowerblue;
+            color: white;
+        }
+    }
+}

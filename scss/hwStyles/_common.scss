@@ -18,6 +18,7 @@ html {
 
 ::-webkit-scrollbar {
     width: .7rem;
+    background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -35,7 +36,6 @@ html {
 body {
     font-family: sans-serif;
     background: var(--bodyBackground);
-
     transition: all .5s;
 
     padding: 5rem 0 2rem 0;
@@ -68,4 +68,21 @@ button {
 .skeleton {
     max-width: 800px;
     margin: 0 auto;
+}
+
+.background {
+    @include initPosition(fixed, 0, 0);
+
+    background-image: url('../../images/background.gif');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    
+    height: 100vh;
+    max-height: 100%;
+    width: 100%;
+
+    z-index: -1;
+
+    transition: all .3s;
 }
