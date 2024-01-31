@@ -40,9 +40,10 @@ export async function renderProfileContainer(arr, value) {
         const link = await makeSrc(profileBox, 'profile-content-box__img', url, value)
 
         profileBox.onclick = function() {
+            const newValue = value === 'characters' ? 'people' : value;
             const breadCrumbs = document.querySelector('.bread-crumbs');
             getEmpty(breadCrumbs, mainPart);
-            initBreadCrumbs(value, null, key)
+            initBreadCrumbs(newValue, null, key)
             makeProfile(contentName ? contentName : name, info, link);
         }
 
