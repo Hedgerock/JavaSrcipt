@@ -1,16 +1,17 @@
-import { contentInOnePage, mainPart } from "../data.js";
+import { contentInOnePage, mainPart, pagination } from "../data.js";
 import { makeProfile } from "../profile/profile.js";
 import { makeSrc } from "../profile/profileFunctions/profileMakeFunctions.js";
 import { createImg, createLink } from "./createFunctions.js";
 import { initArr } from "./initFunctions.js";
+import { titleOrName } from "./otherFunctions.js";
+import { preloadProcess } from "./preload.js";
 import { renderArr } from "./renderFunctions.js";
 
 
 export async function getCount(obj, key, newUrl) {
     const currentUrl = obj ? obj[key] : newUrl;
 
-    const info = await fetch(currentUrl);
-    const totalPages = await info.json();
+    const totalPages = await preloadProcess(currentUrl, pagination)
 
     const { count } = totalPages;
 
@@ -18,7 +19,7 @@ export async function getCount(obj, key, newUrl) {
 
     const arrayPages = initArr(result);
 
-    renderArr(arrayPages, key, obj, newUrl);
+    await renderArr(arrayPages, key, obj, newUrl);
 }
 
 export async function getLinks(key, arr) {
@@ -27,24 +28,18 @@ export async function getLinks(key, arr) {
             key = 'characters'
         }
 
-        let { name } = el;
+        const { url, name, title } = el;
 
-        const { url } = el;
+        const value = titleOrName(key, title, name);
 
-        if (key === 'films') {
-            const { title } = el;
-            name = title;
-        }
-
-        const pictureBox = createImg(name, 'picture-box', 'picture-box__img');
+        const pictureBox = createImg(value, 'picture-box', 'picture-box__img');
 
         const link = await makeSrc(pictureBox, 'picture-box__img', url, key);
 
         pictureBox.onclick = function() {
             const pagination = document.querySelector('.pagination');
             getEmpty(pagination, mainPart);
-            makeProfile(name, el, link);
-            console.log(`${name}\n${el}\n${link}`)
+            makeProfile(value, el, link, key);
         }
 
         mainPart.append(pictureBox);

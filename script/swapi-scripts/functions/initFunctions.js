@@ -1,8 +1,9 @@
 import { toCapitalize } from "../../fetch-scripts/utils.js";
-import { imgFormat, mainPart } from "../data.js";
+import { breadCrumbs, imgFormat, mainPart } from "../data.js";
 import { createImg, createLink, createTopic } from "./createFunctions.js";
 import { getCount, getLinks } from "./getFunctions.js";
-import { backHomePage, backToList, setDisabled } from "./otherFunctions.js";
+import { backHomePage, backToList, removeDisabled, setDisabled, updateNewUrl } from "./otherFunctions.js";
+import { preloadProcess } from "./preload.js";
 
 export function initDom(obj) {
     const arr = Object.keys(obj).sort((a,b) => a.localeCompare(b));
@@ -18,6 +19,7 @@ export function initDom(obj) {
         topicsBox.onclick = () => {
             mainPart.innerHTML = ''
 
+            breadCrumbs.classList.add('bread-crumbs_inactive')
             initContentList(obj, key);
         }
 
@@ -33,15 +35,19 @@ export function initDom(obj) {
 export async function initCurrentPage(url, key) {
     mainPart.innerHTML = '';
 
-    console.log(url, key)
-
     setDisabled();
-    const test = await fetch(url);
-    const testInfo = await test.json();
 
-    const results = testInfo.results
+    const info = await preloadProcess(url, mainPart)
+
+    breadCrumbs.classList.remove('bread-crumbs_inactive');
+    const results = info.results
 
     getLinks(key, results);
+
+    removeDisabled();
+
+    const firstChild = document.querySelector('.pagination__button:first-child');
+    firstChild.setAttribute('disabled', '');
 }
 
 export function initArr(result) {
@@ -55,32 +61,27 @@ export function initArr(result) {
 }
 
 export function initBreadCrumbs(key, obj, newUrl) {
-    const parentEl = document.querySelector('.bread-crumbs');
-
     const home = createLink('Home', '#');
     const el = createLink(toCapitalize(key), '#');
 
-    backToList(mainPart, parentEl, el, key, obj, newUrl);
-    console.log(newUrl);
-    backHomePage(mainPart, parentEl, home);
+    backToList(mainPart, breadCrumbs, el, key, obj, newUrl);
+    backHomePage(mainPart, breadCrumbs, home);
 
-    parentEl.append(home, el);
+    breadCrumbs.append(home, el);
 }
 
-export function initContentList(obj, key, newUrl) {
+export async function initContentList(obj, key, newUrl) {
     if (key === 'characters') {
         key = 'people';
     }
 
     if (newUrl) {
-        newUrl = newUrl.split(key);
-        newUrl = newUrl[0] + key;
+        newUrl = updateNewUrl(newUrl, key);
     }
 
     const link = obj ? obj[key] : newUrl;
     const url = link + '/?page=1'
-    console.log(`NewUrl:${newUrl}\nObj:${obj}\nKey:${key}\nUrl:${url}`);
 
-    getCount(obj, key, url);
+    await getCount(obj, key, url);
     initCurrentPage(url, key)
 }

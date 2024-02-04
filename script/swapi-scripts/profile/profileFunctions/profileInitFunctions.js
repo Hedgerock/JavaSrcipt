@@ -7,8 +7,6 @@ export function initNewObj(el) {
 
 export async function initCurrentContent(arr, value, title) {
     const relatedResidents = renderProfileInfo(title);
-    const residentsContainer = await renderProfileContainer(arr, value);
-    relatedResidents.append(residentsContainer);
-
+    renderProfileContainer(arr, value, relatedResidents);
     mainPart.append(relatedResidents);
 }

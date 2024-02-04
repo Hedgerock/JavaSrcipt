@@ -1,7 +1,8 @@
-import { mainPart } from "../../data.js";
+import { breadCrumbs, mainPart } from "../../data.js";
 import { createImg } from "../../functions/createFunctions.js";
 import { getEmpty } from "../../functions/getFunctions.js";
 import { initBreadCrumbs } from "../../functions/initFunctions.js";
+import { preload, preloadProcess } from "../../functions/preload.js";
 import { makeProfile } from "../profile.js";
 import { initCurrentContent } from "./profileInitFunctions.js";
 import { makeSrc } from "./profileMakeFunctions.js";
@@ -21,33 +22,41 @@ export function renderProfileInfo(value) {
         }
     }
     
-
     return box;
 }
 
-export async function renderProfileContainer(arr, value) {
+export async function renderProfileContainer(arr, value, relatedResidents) {
     const container = document.createElement('div');
     container.className = 'profile-container';
+    relatedResidents.append(container);
+    const preloader = preload(container);
 
     for (let key of arr) {
-        const request = await fetch(key);
-        const info = await request.json();
-
+        const info = await preloadProcess(key);
         const { title: contentName, url, name } = info;
 
         const profileBox = createImg(contentName ? contentName : name, 'profile-content-box', 'profile-content-box__img');
 
         const link = await makeSrc(profileBox, 'profile-content-box__img', url, value)
 
-        profileBox.onclick = function() {
+        profileBox.onclick = async function() {
             const newValue = value === 'characters' ? 'people' : value;
-            const breadCrumbs = document.querySelector('.bread-crumbs');
             getEmpty(breadCrumbs, mainPart);
             initBreadCrumbs(newValue, null, key)
-            makeProfile(contentName ? contentName : name, info, link);
+            await makeProfile(contentName ? contentName : name, info, link, newValue);
         }
 
         container.append(profileBox);
+    }
+    preloader.remove();
+
+    if (container.childNodes.length === 0) {
+        const title = document.createElement('h2');
+        title.className = 'profile-container__title';
+        title.textContent = `No related ${value}`
+
+        container.classList.add('profile-container_empty');
+        container.append(title);
     }
 
     return container;

@@ -1,20 +1,19 @@
 import { contents, mainPart } from "../data.js";
 import { updateBreadCrumbs } from "../functions/getFunctions.js";
 import { createContainer } from "./profileFunctions/profileCreateFunctions.js";
-import { initNewObj } from "./profileFunctions/profileInitFunctions.js";
 import { renderContent } from "./profileFunctions/profileRenderFunctions.js";
 
-export async function makeProfile(name, el, img) { 
+export async function makeProfile(name, el, img, value) {
+    window.scrollTo(0,0);
+
     mainPart.classList.add('main-part_content-profile');
+
+    const { films, vehicles, starships, characters, people, pilots, residents, species, planets } = el
+    const obj = setObj(films, vehicles, starships, characters, people, pilots, residents, species, planets);
 
     updateBreadCrumbs(name, img);
 
-    const newObj = initNewObj(el);
-
-    createContainer(name, newObj, img);
-
-    const { films, vehicles, starships, characters, people, pilots, residents } = el
-    const obj = setObj(films, vehicles, starships, characters, people, pilots, residents);
+    await createContainer(name, el, img, value);
 
     renderContent(obj);
 }
@@ -25,8 +24,6 @@ function setObj() {
 
     newObj.forEach((item, index) => {
         item.array = args[index]
-
-        console.log(index, args[index]);
     })
 
     return newObj;

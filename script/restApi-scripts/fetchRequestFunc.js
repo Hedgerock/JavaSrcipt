@@ -10,8 +10,8 @@ export function fetchRequestFuncDel(id) {
     })
 }
 
-export function fetchRequestFuncPosts(title, value) {
-    fetch(url, {
+export async function fetchRequestFuncPosts(title, value) {
+    await fetch(url, {
         method: 'POST',
         body: JSON.stringify({title: title, body: value}),
         headers: {

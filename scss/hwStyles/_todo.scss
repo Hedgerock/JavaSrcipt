@@ -1,0 +1,178 @@
+body {
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+
+$gr: grey;
+
+.header_todo {
+    justify-content: flex-start;
+
+    & h1 {
+        font-size: 2.5rem;
+        color: whitesmoke;
+
+        text-transform: uppercase;
+    }
+}
+
+.todo-app {
+    overflow: hidden;
+
+    padding: 1rem;
+
+    border: 3px solid $gr;
+
+    border-radius: 1rem;
+}
+
+.todo-filter-block {
+    @include flex(flex-end);
+    width: 100%;
+    align-self: flex-end;
+}
+
+.todo-filter-label {
+    padding: 1rem;
+
+    border: 1px solid $gr;
+}
+
+.todo-list {
+    @include flex(center, flex-start);
+    position: relative;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    gap: 1rem;
+
+    padding: 1rem;
+
+    border-radius: .5rem;
+
+
+    & li {
+        background: rgba(0,0,0, .3);
+
+        color: white;
+    }
+
+    &:not(:last-child) {
+        border: 1px solid #7f7fe9;
+        margin: 4rem 0 2.5rem 0;
+    }
+
+    &_finished {
+
+        border: 1px solid #5f9e5f;
+
+        & li {
+            position: relative;
+            opacity: .7;
+
+            &::before {
+                @include absolutePosition(50%, 50%);
+                transform: translate(-50%, -50%);
+
+                content: '';
+
+                width: 100%;
+                height: 2px;
+
+                background: black;
+            }
+        }
+    }
+}
+
+.todo-item {
+    @include flex(flex-start);
+
+    gap: 2rem;
+
+    width: 100%;
+
+    padding: 0 0 0 1rem;
+
+    border: 1px solid silver;
+    border-radius: .6rem;
+
+    height: 5rem;
+
+    overflow: hidden;
+
+    &__delBtn {
+        height: 100%;
+        border: none;
+        border-radius: 0 .6rem .6rem 0;
+        width: 45px;
+    }
+
+    &__completed {
+        width: 20px;
+        height: 20px;
+    }
+
+    &__text {
+        @include flex(flex-start);
+
+        margin-right: auto;
+
+        width: 80%;
+
+        height: 100%;
+
+        padding: 1rem;
+
+    }
+}
+
+
+.add-todo-form {
+    @include flex(center, flex-start);
+
+    flex-direction: column;
+
+    &__input {
+        resize: none;
+
+        width: 100%;
+
+        border-radius: .5rem;
+
+        border: 1px solid $gr;
+
+        font-size: 1.2rem;
+
+        padding: 1rem;
+
+    }
+
+    &__button {
+        padding: .5rem;
+
+        border: 1px solid $gr;
+
+        width: 271px;
+
+        background: transparent;
+
+        &_submit {
+            height: 100%;
+
+            margin-bottom: 1rem;
+        }
+
+        &_removeAll {
+            align-self: flex-end;
+        }
+    }
+}
+
+.content {
+    margin: 2.5rem 0;
+
+    align-self: center;
+}

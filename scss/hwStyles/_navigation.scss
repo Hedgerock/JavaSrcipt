@@ -1,6 +1,12 @@
 .navigation {
     @include flex(space-between);
+
+    padding: 2.5rem 0 0 0;
 }
+
+$clw: white;
+$cls: silver;
+$clb: cornflowerblue;
 
 .bread-crumbs {
     @include flex(flex-start);
@@ -14,7 +20,7 @@
             font-size: 1.2rem;
             position: relative;
 
-            color: white;
+            color: $clw;
             font-weight: bold;
 
             &:hover {
@@ -30,7 +36,7 @@
                 content: '';
                 width: 0;
                 height: 2px;
-                background: cornflowerblue;
+                background: $clb;
                 transition: all .3s;
             }
         }
@@ -43,7 +49,7 @@
                 font-family: 'Font Awesome 6 Free';
                 font-weight: 900;
                 content: '\f715';
-                color: white;
+                color: $clw;
             }
         }
 
@@ -51,21 +57,37 @@
             pointer-events: none;
             
             a {
-                color: silver;
+                color: $cls;
             }
+        }
+    }
+
+    &_inactive {
+        & div > a {
+            pointer-events: none;
+            color: $cls;
         }
     }
 }
 
 .pagination {
+    position: relative;
 
     button {
         width: 25px;
         height: 25px;
 
         &:disabled {
-            background: cornflowerblue;
-            color: white;
+            background: $clb;
+            color: $clw;
+        }
+    }
+
+    &_disabled {
+        & button {
+            background: red !important;
+            color: $clw;
+            pointer-events: none;
         }
     }
 }

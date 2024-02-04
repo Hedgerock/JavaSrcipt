@@ -9,6 +9,14 @@ export function createLink(value, link) {
     return crumbBox;
 }
 
+export function createButton(className, page) {
+    const button = document.createElement('button');
+    button.className = className;
+    button.textContent = page;
+
+    return button;
+}
+
 export function createImg(name, classBox, classPicture) {
     const pictureBox = document.createElement('div');
     const picture = document.createElement('img');

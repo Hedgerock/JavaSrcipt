@@ -2,7 +2,7 @@
   "posts": [
     {
       "id": "a4c0",
-      "title": "Democracy is at stake in the 2024 US election",
+      "title": "Democracy is at stake in the 2024 US",
       "body": "Uncertainty looms large over the 2024 American presidential election. As the list of international crises grows, partisan battles in Congress over foreign policy priorities are heating up, suggesting that fears about America’s future commitments are warranted.\n<br>\n<br>\nThe war between Israel and Hamas is being used by Trump-supporting Republicans to limit United States’ support for Ukraine. Republicans have blasted President Joe Biden for his decision to meet Xi Jinping, the Chinese president, during his trip to the APEC summit of Asian and Pacific states in California in November. Donald Trump’s threat to withdraw the US from Nato, if re-elected, risks further instability across Europe.\n<br>\n<br>\nAn existential problem\nUS foreign policy choices will shape the prospect for peace in Europe, Asia and the Middle East. America’s global role has been both anchored and amplified by the strength of its own democracy, so the US election poses a more existential problem. And that is for democracy itself − both within and beyond its borders.\n<br>\n<br>\nThe starting point for the 2024 elections is already a troubled one."
     },
     {
@@ -14,21 +14,43 @@
       "id": "d7ee",
       "title": "Review: Will capitalism fix climate change?",
       "body": "At the end of his book, Akshat Rathi concludes that getting to zero emissions by a deadline will ‘mean changing everything’. But from the opening pages the tone of Climate Capitalism is one of acceptance that changing the capitalist system is just not possible.\n<br>\n<br>\nHe begins by setting out the system’s flaws: its extractive nature; the delusional ‘pursuit of endless growth at all costs’; the determination of many to ‘maximize profits … and the tendency of the system to concentrate wealth in the hands of the rich’. With these flaws in mind, he is resigned to the impossibility of change.\n<br>\n<br>\nRathi instead sets out to ‘harness the forces of capitalism’ to serve the climate, confident of success for the many private initiatives he has rigorously investigated – success that almost everywhere seems to rest on the support of a public, proactive state prepared to shoulder the risk."
-    }
-  ],
-  "comments": [
-    {
-      "id": "1",
-      "text": "a comment about post 1",
-      "postId": null
     },
     {
-      "id": "2",
-      "text": "another comment about post 1",
-      "postId": null
+      "id": "87d3",
+      "title": "asd",
+      "body": "asdasd"
+    },
+    {
+      "id": "43eb",
+      "title": "вфыв",
+      "body": "ыфвыфвфыв"
+    },
+    {
+      "id": "7e99",
+      "title": "asdsa",
+      "body": "dasd"
     }
   ],
-  "profile": {
-    "name": "typicode"
+  "unfinishedTodos": [
+    {
+      "id": "85fe",
+      "text": "Flour",
+      "finished": false
+    },
+    {
+      "id": "99d2",
+      "text": "Milk",
+      "finished": false
+    }
+  ],
+  "finishedTodos": [
+    {
+      "id": "7831",
+      "text": "Sausage",
+      "finished": true
+    }
+  ],
+  "checkedOnly": {
+    "status": false
   }
 }
