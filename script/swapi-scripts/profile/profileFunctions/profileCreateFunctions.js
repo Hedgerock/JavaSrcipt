@@ -1,12 +1,13 @@
 import { mainPart } from "../../data.js";
 import { createImg } from "../../functions/createFunctions.js";
-import { getList } from "./profileGetFunctions.js";
+import { getCharacterList } from "./mainInfo.js";
 
-export function createContainer(name, newObj, img) {
+export async function createContainer(name, el, img, newKey) {
     const container = document.createElement('div');
     container.className = 'profile-box';
 
-    const list = getList(newObj)
+    console.log(newKey);
+    const list = await getCharacterList(el, name, newKey);
 
     const picture = createImg(name, 'profile-picture-box', 'profile-picture-box__img');
     const elImg = picture.querySelector('.profile-picture-box__img');

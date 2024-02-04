@@ -1,9 +1,10 @@
 import { fetchRequestFuncDel, fetchRequestFuncPatch, fetchRequestFuncPosts } from "./fetchRequestFunc.js";
 
+
 export function createBtn(form) {
     const createBtn = initBtn('Create post', 'content-box-form__btn content-box-form__btn_create');
 
-    createBtn.onclick = (e) => {
+    createBtn.onclick = async (e) => {
         e.preventDefault();
 
         const titleValue = form.textareaTitle.value;
@@ -14,6 +15,8 @@ export function createBtn(form) {
         }
 
         fetchRequestFuncPosts(titleValue, bodyValue)
+
+        location.reload();
     }
 
     return createBtn;
@@ -33,6 +36,9 @@ export function editBtn(id, form) {
         }
 
         fetchRequestFuncPatch(id, titleValue, bodyValue)
+
+
+        location.reload();
     }
 
     return editButton;
