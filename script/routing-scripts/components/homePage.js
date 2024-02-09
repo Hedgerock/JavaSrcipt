@@ -13,7 +13,7 @@ export function homePage() {
 
     const homePageText = document.createElement('p');
     homePageText.className = 'pages-text';
-    homePageImg.src = '../../images/homePage.png'
+    homePageImg.src = './images/homePage.png'
     
     homePageTitle.textContent = 'Home page'
     homePageText.innerHTML = `
