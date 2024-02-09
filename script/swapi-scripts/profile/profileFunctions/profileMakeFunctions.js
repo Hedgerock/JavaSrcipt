@@ -7,7 +7,7 @@ export async function makeSrc(box, className, url, key) {
     let link = `${imgUrl}/${key}/${elId}`;
     const pictureUrl = await fetch(link);
     if (!pictureUrl.ok) {
-        link = './images/alter.webp'
+        link = '../images/alter.webp'
     }
     img.src = link;
 

@@ -1,0 +1,37 @@
+.error {
+    $clrR: #cd1f1f;
+    $clrB: #6969e5;
+
+    @include flex;
+    flex-direction: column;
+
+    position: relative;
+
+    width: 100%;
+
+    border: 1px solid $clrR;
+    border-radius: .7rem;
+
+    &__title {
+        font-size: 3rem;
+        color: $clrR;
+    }
+
+    &__back-link {
+        @include absolutePosition(70%, 50%);
+        transform: translateX(-50%);
+        transition: all .3s;
+
+        border: 1px solid;
+
+        padding: 1rem;
+
+        border-radius: 1.5rem;
+
+        &:hover {
+            border: 1px solid #1a1a38;;
+            color: white;
+            background: $clrB;
+        }
+    }
+}

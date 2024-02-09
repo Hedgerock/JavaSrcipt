@@ -1,0 +1,59 @@
+@import '../hwStyles/routeComponents/blog';
+@import '../hwStyles/routeComponents/contactsPage';
+@import '../hwStyles/routeComponents/homePage';
+@import '../hwStyles/routeComponents/aboutPage';
+@import '../hwStyles/routeComponents/err404';
+
+.header_routing {
+    @include flex(space-between);
+}
+
+.pages-text {
+    padding: .5rem;
+    border: 1px solid;
+    border-radius: 1.5rem;
+
+    font-size: 1.1rem;
+    word-spacing: .3rem;
+}
+
+.header-menu {
+    @include flex;
+    gap: 2rem;
+
+    & > li {
+        position: relative;
+        @include flex;
+        font-weight: bold;
+
+        & > a {
+            color: black;
+
+            &.active::before,
+            &::before {
+                @include absolutePosition(100%, 50%);
+                content: '';
+                transform: translateX(-50%);
+                height: 2px;
+                background: #ad5a5a;
+            }
+
+            &.active::before {
+                width: 100%;
+            }
+
+            &::before {
+                width: 0;
+    
+                transition: all .3s;
+            }
+        
+            &:hover {
+        
+                &::before {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
