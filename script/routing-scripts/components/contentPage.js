@@ -41,7 +41,7 @@ export function createBreadCrumbs(title) {
     const currentCrumb = document.createElement('a');
     const backtoMain = document.createElement('a');
 
-    breadCrumbs.className = 'bread-crumbs'
+    breadCrumbs.className = 'bread-crumbs-routing'
 
     backtoMain.textContent = 'blog';
     backtoMain.href = '#blog';
