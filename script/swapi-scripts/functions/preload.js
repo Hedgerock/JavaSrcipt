@@ -29,7 +29,7 @@ export function preload(parent) {
     preloaderBox.className = 'loading-box';
     const preloader = createImg('', 'loading', 'loading__img');
     const picture = preloader.querySelector('.loading__img');
-    picture.src = '../images/preloading.gif';
+    picture.src = '../../images/preloading.gif';
 
     parent.append(preloaderBox);
     preloaderBox.append(preloader);
@@ -53,7 +53,7 @@ async function tryCatch(url, parent) {
 function initError(parent) {
     const box = createImg('', 'error', 'error__img');
     const img = box.querySelector('.error__img');
-    img.src = '../images/err404.png'
+    img.src = '../../images/err404.png'
 
     parent.classList.add('error-box');
 

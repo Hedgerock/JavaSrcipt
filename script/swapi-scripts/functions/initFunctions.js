@@ -25,7 +25,7 @@ export function initDom(obj) {
 
         const imgWebp = `${key}${imgFormat.webp}`
 
-        picture.src = `../images/${imgWebp}`;
+        picture.src = `./images/${imgWebp}`;
 
         mainPart.append(topicsBox);
         topicsBox.append(imgBox);
