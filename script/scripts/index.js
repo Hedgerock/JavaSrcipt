@@ -1,6 +1,6 @@
-import { Alert } from "./AlertClass.js"
-import { Prompt } from "./Prompt.js"
-import { Confirm } from "./Confirm.js"
+import { Alert } from "./alertClass.js"
+import { Prompt } from "./prompt.js"
+import { Confirm } from "./confirm.js"
 import { animation, changeIcon, initTheme } from "./functions.js"
 
 const confirmBtn = document.querySelector('.container__select-btn_confirm')

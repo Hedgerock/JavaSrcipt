@@ -1,26 +1,18 @@
-export function contactsPage() {
-    const contacts = [ 
-        ['address', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore, cupiditate.'],
-        ['phone', 'Lorem ipsum dolor sit amet.'],
-        ['e-mail', 'Lorem ipsum dolor sit amet consectetur.'],
-        ['city', 'Lorem, ipsum dolor.'] 
-    ];
-    const contactsBox = document.createElement('div');
+import { contacts } from "../data.js";
+import { createEl } from "../utils.js";
 
-    const list = document.createElement('ul');
-    list.className = 'list';
-    const title = document.createElement('h2');
-    title.textContent = 'Contacts page';
+export function contactsPage() {
+    const contactsBox = createEl('', 'div');
+    const list = createEl('list', 'ul');
+    const title = createEl('contacts-box__title', 'h2', 'Contacts page');
 
     contacts.forEach(contact => {
-        const el = document.createElement('li');
         const elTitle = contact[0];
         const elValue = contact[1];
+
+        const el = createEl(`element element_${elTitle}`, 'li', `${elTitle}: `);
+
         el.dataset.value = elValue;
-
-        el.className = `element element_${elTitle}`;
-        el.textContent = elTitle + ':' + ' ';
-
         list.append(el);
     })
 

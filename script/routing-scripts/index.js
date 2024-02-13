@@ -1,9 +1,17 @@
+import { searchInp, searchBtn } from "./data.js";
 import { checkRoute } from "./hashFunc.js";
-import { changeActive } from "./menuManipulations.js";
+import { initSearch } from "./headerSearch.js";
 import { renderMenu } from "./render/renderMenu.js";
 
 renderMenu();
 checkRoute();
-changeActive();
 
 addEventListener('hashchange', () => { checkRoute() })
+
+searchBtn.onclick = () => { initSearch(searchInp) }
+
+searchInp.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        initSearch(searchInp)
+    }
+})

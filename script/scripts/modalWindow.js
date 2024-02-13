@@ -1,4 +1,4 @@
-import { MyWindow } from "./MyWindow.js";
+import { MyWindow } from "./myWindow.js";
 
 export class ModalWindow extends MyWindow {
     create() {
