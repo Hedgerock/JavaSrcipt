@@ -15,7 +15,7 @@ $silver: silver;
 
     width: 100%;
 
-    height: 600px;
+    height: 550px;
     overflow-y: auto;
 
     & > li {
@@ -27,12 +27,35 @@ $silver: silver;
         padding: .5rem;
         border: 1px solid $silver;
 
-        & > h3 {
+        & > a {
+            @include flex(flex-start);
+
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
+            color: black;
+
+            width: 100%;
+            height: 100%;
+        }
+
+        & > span {
+            @include flex;
+            margin-right: .5rem;
+
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: 1px solid silver;
         }
     }
+}
+
+.not-found {
+    @include flex;
+
+    width: 100%;
+    height: 100%;
 }
 
 .bread-crumbs-routing {
@@ -42,7 +65,7 @@ $silver: silver;
 
     border: 1px solid silver;
 
-    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
 
     & > a {
 
@@ -81,12 +104,23 @@ $silver: silver;
 
             @include flex;
 
-            width: 25px;
+            width: 35px;
             height: 25px;
-            border-radius: 50%;
+            padding: .5rem;
             border: 1px solid;
 
             margin-right: 1rem;
         }
+    }
+}
+
+.blog-header {
+    @include flex(space-between);
+
+    & input {
+        padding: .5rem;
+        border: 1px solid silver;
+
+        border-radius: 1rem;
     }
 }

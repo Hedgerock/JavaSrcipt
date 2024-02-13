@@ -12,7 +12,7 @@
     <div class="container_menu">
         <ul class="menu">
             <li class="menu-element" title = 'main page'>
-                <a href="../index.html" class="menu-element__link">
+                <a href="./index.html" class="menu-element__link">
                     <i class="fa-solid fa-mug-hot"></i>
                 </a>
             </li>
@@ -49,13 +49,31 @@
         </ul>
     </div>
 
-    <div class="skeleton">
+    <div class="skeleton skeleton_routing">
         <div class="header header_routing">
-            <h1 class="header__title">SPA</h1>
+            <h1 class="header__title"><a href="#/">SPA</a></h1>
+            <div class="header-search">
+                <input type="search" class="header-search__input" placeholder="type here">
+                <button class="search-btn">
+                    <i class="search-btn__icon fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
         </div>
         
-        <div class="main-part">
+        <div class="main-part main-part_routing">
             <div class="outlet"></div>
+        </div>
+
+        <div class="footer footer_routing">
+            <div class="social">
+                <a href="https://github.com/Hedgerock" target="_blank" class="social-link">
+                    <i class="fa-brands fa-square-github"></i>
+                </a>
+                <a href="https://t.me/Hedgerock" class="social-link" target="_blank">
+                    <i class="fa-brands fa-telegram"></i>
+                </a>
+            </div>
+            <span>2024</span>
         </div>
     </div>
 

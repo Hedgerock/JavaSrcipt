@@ -1,21 +1,13 @@
+import { createEl } from "../utils.js";
+
 export function homePage() {
-    const homePageBox = document.createElement('div');
-    homePageBox.className = 'home-page';
-
-    const homePageTitle = document.createElement('h2');
-    homePageTitle.className = 'home-page__title';
-
-    const homePagePicture = document.createElement('div');
-    homePagePicture.className = 'home-page-picture';
-
-    const homePageImg = document.createElement('img');
-    homePageImg.className = 'home-page-picture__img';
-
-    const homePageText = document.createElement('p');
-    homePageText.className = 'pages-text';
+    const homePageBox = createEl('home-page', 'div')
+    const homePageTitle = createEl('home-page__title', 'h2', 'Home page');
+    const homePagePicture = createEl('home-page-picture', 'div');
+    const homePageImg = createEl('home-page-picture__img', 'img');
+    const homePageText = createEl('pages-text', 'p');
     homePageImg.src = './images/homePage.png'
     
-    homePageTitle.textContent = 'Home page'
     homePageText.innerHTML = `
     Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
     Nam provident quae possimus totam veniam asperiores, vel corporis

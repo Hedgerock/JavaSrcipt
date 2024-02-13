@@ -1,19 +1,20 @@
-import { getHash } from "./hashFunc.js";
-
 export function changeActive() {
     const links = document.querySelectorAll('.header-menu a');
-    const hash = getHash();
+    const hash = window.location.hash;
+
+    links.forEach(item => {
+        item.classList.remove('active');
+    }) 
+
+    if (hash === '#/') {
+        links[0].classList.add('active');
+        return;
+    }
 
     links.forEach(link => {
-        link.onclick = function() {
-            links.forEach(item => {
-                item.classList.remove('active');
-            }) 
+        const href = link.getAttribute('href');
 
-            link.classList.add('active');
-        }
-
-        if (link.getAttribute('href') === `#${hash}`) {
+        if (href !== '#/' && hash.includes(href)) {
             link.classList.add('active');
         }
     }) 

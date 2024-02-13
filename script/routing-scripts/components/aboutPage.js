@@ -1,13 +1,10 @@
+import { createEl } from "../utils.js";
+
 export function aboutPage() {
-    const aboutPage = document.createElement('div');
-    const aboutPageTitle = document.createElement('h2');
-    const aboutPageText = document.createElement('p');
+    const aboutPage = createEl('about-page', 'div');
+    const aboutPageTitle = createEl('about-page__title', 'h2', 'About page');
+    const aboutPageText = createEl('pages-text', 'p')
 
-    aboutPage.className = 'about-page';
-    aboutPageTitle.className = 'about-page__title';
-    aboutPageText.className = 'pages-text';
-
-    aboutPageTitle.textContent = 'About page';
     aboutPageText.innerHTML = `
     Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
     Nam provident quae possimus totam veniam asperiores, vel corporis

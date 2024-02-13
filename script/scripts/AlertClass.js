@@ -1,4 +1,4 @@
-import { ModalWindow } from "./ModalWindow.js";
+import { ModalWindow } from "./modalWindow.js";
 
 export class Alert extends ModalWindow {
     create() {

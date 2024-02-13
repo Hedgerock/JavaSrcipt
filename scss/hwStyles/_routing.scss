@@ -4,8 +4,60 @@
 @import '../hwStyles/routeComponents/aboutPage';
 @import '../hwStyles/routeComponents/err404';
 
+.skeleton_routing {
+   height: 800px;
+}
+
+.header_routing,
+.footer_routing {
+    height: 9.75%;
+    padding: 1rem;
+    background: silver;
+}
+
+.header_routing {
+    margin-bottom: 0;
+
+    border-radius: 1rem 1rem 0 0;
+}
+
+.main-part_routing {
+    height: 80.5%;
+    margin-top: 0;
+    border: 1px solid silver;
+
+    padding: 1rem 1rem 0 1rem;
+}
+
+
 .header_routing {
     @include flex(space-between);
+
+    & > h1 {
+        text-decoration: underline;
+
+        & a {
+            color: black;
+        }
+    }
+
+    & > .header-search {
+        position: relative;
+        @include flex(space-between);
+
+        padding: .4rem 1rem;
+        border: 1px solid;
+        border-radius: 1rem;
+
+        & > button {
+            border: none;
+            outline: none;
+            background: none;
+
+            font-size: .9rem;
+            color: black;
+        }
+    }
 }
 
 .pages-text {
@@ -55,5 +107,21 @@
                 }
             }
         }
+    }
+}
+
+.footer_routing {
+    @include flex(space-between);
+    border-radius: 0 0 1rem 1rem;
+}
+
+.social {
+    @include flex;
+
+    gap: 1.5rem;
+
+    &-link {
+        color: black;
+        font-size: 1.6rem;
     }
 }
