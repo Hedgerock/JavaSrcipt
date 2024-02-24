@@ -1,0 +1,42 @@
+input[type = color],
+input[type = number],
+input[type = range] {
+    cursor: pointer;
+}
+
+#canvas {
+    background-color: silver;
+
+    border-radius: 1rem;
+}
+
+.inputs {
+    @include flex(space-between, center);
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+
+    gap: 1rem;
+
+    &-box {
+        padding: .5rem;
+
+        border: 1px solid silver;
+        border-radius: .6rem;
+        height: 90px;
+        width: 200px;
+
+        &:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+
+        & label {
+            @include flex(flex-start, center);
+            flex-direction: row;
+
+            & input {
+                width: 50px;
+                text-align: center
+            }
+        }
+    }
+}

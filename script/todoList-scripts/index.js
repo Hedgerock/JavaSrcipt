@@ -1,3 +1,4 @@
+import { initMenu } from "../menu.js";
 import { animation, css, getStatus, initPostAjax, totalExtermination } from "./functions.js";
 import { initGetAjax } from "./mainFunc.js";
 
@@ -5,6 +6,8 @@ export const myUrl = 'http://localhost:3000';
 export const unfinishedUrl = `${myUrl}/unfinishedTodos`
 export const finishedUrl = `${myUrl}/finishedTodos`
 export const checkedStatus = `${myUrl}/checkedOnly`
+
+initMenu();
 
 const status = await getStatus(checkedStatus);
 

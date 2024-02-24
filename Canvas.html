@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./scss/css/style.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Canvas</title>
+</head>
+<body>
+    <div class="container_menu"></div>
+    <div class="main-part main-part_canvas">
+        <canvas id="canvas" width="800" height="500"></canvas>
+
+        <div class="inputs">
+            <div class="inputs-box inputs-box_w">
+                <label>
+                    Width:
+                    <input type="number" class="inputWdNum">
+                </label>
+                <input type="range" name="width" class="inputWidthRange">
+            </div>
+            <div class="inputs-box inputs-box_h">
+                <label>
+                    Height:
+                    <input type="number" class="inputHtNum">
+                </label>
+                <input type="range" name="height" class="inputHeightRange">
+            </div>
+            <div class="inputs-box inputs-box_x">
+                <label>
+                    Position X:
+                    <input type="number" class="inputAxNum">
+                </label>
+                <input type="range" name="posX" class="inputAxRange">
+            </div>
+            <div class="inputs-box inputs-box_y">
+                <label>
+                    Position Y:
+                    <input type="number" class="inputAyNum">
+                </label>
+                <input type="range" name="posY" class="inputAyRange">
+            </div>
+            <div class="inputs-box inputs-box_mClr">
+                <label>
+                    Figure color:
+                    <input type="color" class="inputFgColor" value="#FF0000">
+                </label>
+            </div>
+            <div class="inputs-box inputs-box_mClr">
+                <label>
+                    Background color:
+                    <input type="color" class="inputBgColor" value="#d6d6d6">
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script/canvasScripts/index.js" type="module"></script>
+</body>
+</html>
