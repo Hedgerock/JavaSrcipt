@@ -1,11 +1,14 @@
 import { Alert } from "./alertClass.js"
 import { Prompt } from "./prompt.js"
-import { Confirm } from "./confirm.js"
+import { Confirm } from "./сonfirm.js"
 import { animation, changeIcon, initTheme } from "./functions.js"
+import { initMenu } from "../menu.js"
 
 const confirmBtn = document.querySelector('.container__select-btn_confirm')
 const alertBtn = document.querySelector('.container__select-btn_alert')
 const promptBtn = document.querySelector('.container__select-btn_prompt')
+
+initMenu();
 
 const preload = document.querySelector('.preload');
 const container = document.querySelector('.container');

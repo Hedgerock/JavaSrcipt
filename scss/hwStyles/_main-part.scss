@@ -32,6 +32,32 @@
         display: flex;
         flex-direction: column;
     }
+
+    &_canvas {
+        @include flex;
+
+        flex-direction: column;
+
+        max-width: 800px;
+        margin: 0 auto;
+
+        & label {
+            @include flex(center, flex-start);
+            flex-direction: column;
+
+            &:not(:last-child) {
+                margin-bottom: 1rem;
+            }
+
+            & > span {
+
+
+                &::after {
+                    content: attr(data-value);
+                }
+            }
+        }
+    }
 }
 
 .options,

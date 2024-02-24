@@ -29,5 +29,15 @@
             transform: scale(1.05);
             opacity: .8;
         }
+
+        &_active {
+            border-bottom: 2px solid #a2a2e0;
+
+            & > a {
+                color: #a2a2e0;
+
+                pointer-events: none;
+            }
+        }
     }
 }

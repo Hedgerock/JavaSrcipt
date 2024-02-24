@@ -4,9 +4,12 @@ import { renderDom, renderElements, renderPostTitles } from "../fetch-scripts/re
 import { createPost } from "./functions.js";
 import { initEditOption, removeEditBtn } from "./renderUtils.js";
 import { checkPostsStatus } from "./utils.js";
+import { initMenu } from "../menu.js";
 
 const newElBtn = document.querySelector('.fetch-buttons__current-btn_newEl');
 const checkbox = document.querySelector('.checkbox-edit');
+
+initMenu();
 
 fetchFunction(url, renderElements, renderDom, renderPostTitles);
 
