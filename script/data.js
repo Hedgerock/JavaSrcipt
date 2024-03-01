@@ -20,6 +20,9 @@ export const coffeeVolume = {
     classic: 0.2
 }
 
+export const dayArr = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+export const monthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
 export const menuEl = [
     { title: 'Main page', icon: 'fa-solid fa-mug-hot', href: './index.html' },
     { title: 'Class extension', icon: 'fa-solid fa-maximize', href: './classExtension.html' },
@@ -30,4 +33,5 @@ export const menuEl = [
     { title: 'To do list', icon: 'fa-regular fa-rectangle-list', href: './todoList.html' },
     { title: 'Routing', icon: 'fa-solid fa-route', href: './routing.html#/' },
     { title: 'Canvas', icon: 'fa-solid fa-palette', href: './Canvas.html' },
+    { title: 'Time', icon: 'fa-solid fa-hourglass-half', href: './time.html' },
 ]

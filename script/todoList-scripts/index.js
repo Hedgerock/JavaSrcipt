@@ -1,4 +1,4 @@
-import { initMenu } from "../menu.js";
+import { clockwork } from "../menu.js";
 import { animation, css, getStatus, initPostAjax, totalExtermination } from "./functions.js";
 import { initGetAjax } from "./mainFunc.js";
 
@@ -7,7 +7,11 @@ export const unfinishedUrl = `${myUrl}/unfinishedTodos`
 export const finishedUrl = `${myUrl}/finishedTodos`
 export const checkedStatus = `${myUrl}/checkedOnly`
 
-initMenu();
+clockwork();
+
+setInterval (() => {
+    clockwork();
+}, 1000)
 
 const status = await getStatus(checkedStatus);
 

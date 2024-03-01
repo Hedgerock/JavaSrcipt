@@ -1,6 +1,6 @@
 import { ModalWindow } from "./modalWindow.js";
 
-export class Alert extends ModalWindow {
+export class AlertClass extends ModalWindow {
     create() {
         const myWindow = super.create();
 

@@ -1,4 +1,5 @@
-import { menuEl } from "./data.js";
+import { menuEl, monthArr } from "./data.js";
+import { createElem } from "./timeScripts/createFunc.js";
 
 export function initMenu() {
     const container = document.querySelector('.container_menu');
@@ -27,6 +28,36 @@ export function initMenu() {
     container.append(menu);
 }
 
+
+export function clockwork() {
+    const timeBox = document.querySelector('.time');
+    timeBox.innerHTML = '';
+
+    const time = new Date();
+
+    let day = time.getDate();
+    let month = monthArr[time.getMonth()];
+    let year = time.getFullYear();
+
+    const { hours, minutes, seconds } = timeConvert(time);
+
+    const el = createElem({ tag: 'span', className: 'time-span', textContent: `${hours}:${minutes}:${seconds}` })
+    const elDate = createElem({ tag: 'span', className: 'date', textContent: `${day} ${month} ${year}` })
+
+    timeBox.append(el, elDate);
+}
+
+export function timeConvert(time) {
+    let hours = time.getHours().toString();
+    let minutes = time.getMinutes().toString();
+    let seconds = time.getSeconds().toString();
+
+    hours.length === 1 ? hours = `0${hours}` : hours
+    minutes.length === 1 ? minutes = `0${minutes}` : minutes
+    seconds.length === 1 ? seconds = `0${seconds}` : seconds
+
+    return { hours, minutes, seconds }
+}
 
 function createEl(tag, classNameVal, textContentVal) {
     const el = document.createElement(tag);

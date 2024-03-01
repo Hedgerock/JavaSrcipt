@@ -1,6 +1,6 @@
 import { ModalWindow } from "./modalWindow.js";
 
-export class Confirm extends ModalWindow {
+export class ConfirmClass extends ModalWindow {
     create() {
         const myWindow = super.create();
 
