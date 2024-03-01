@@ -1,22 +1,24 @@
-import { Alert } from "./alertClass.js"
-import { Prompt } from "./prompt.js"
-import { Confirm } from "./сonfirm.js"
-import { animation, changeIcon, initTheme } from "./functions.js"
-import { initMenu } from "../menu.js"
+import { animation, changeIcon, initTheme } from "./functions.js";
+import { clockwork } from "../menu.js";
+import { AlertClass } from "./alertClass.js";
+import { ConfirmClass } from "./confirm.js";
+import { PromptClass } from "./prompt.js";
 
 const confirmBtn = document.querySelector('.container__select-btn_confirm')
 const alertBtn = document.querySelector('.container__select-btn_alert')
 const promptBtn = document.querySelector('.container__select-btn_prompt')
 
-initMenu();
+clockwork();
+
+setInterval (() => {
+    clockwork();
+}, 1000)
 
 const preload = document.querySelector('.preload');
 const container = document.querySelector('.container');
-const header = document.querySelector('.header');
 
 setTimeout (() => {
     container.removeAttribute('style');
-    header.removeAttribute('style');
 }, 1000);
 
 setTimeout (() => {
@@ -27,9 +29,9 @@ setTimeout (() => {
     preload.style.opacity = 0;
 }, 3000);
 
-const w1 = new Confirm()
-const w2 = new Alert()
-const w3 = new Prompt()
+const w1 = new ConfirmClass()
+const w2 = new AlertClass();
+const w3 = new PromptClass()
 
 confirmBtn.onclick = () => {
     w1.create();

@@ -1,0 +1,255 @@
+.films {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    & > li {
+        width: 250px;
+        height: 300px;
+        
+        & > a {
+
+            width: 100%;
+            height: 100%;
+
+            & > img {
+                width: 100%;
+                height: 100%;
+                
+                object-fit: cover;
+            }
+        }
+    }
+}
+
+.header_time {
+    justify-content: flex-start;
+}
+
+.header__title {
+    font-size: 1.5rem;
+    color: black;
+    @include flex;
+
+    padding: .5rem 1.5rem;
+
+    border: 1px solid silver;
+    background: rgba(0,0,0, .3);
+    border-radius: .5rem;
+    color: white;
+}
+
+.outlet_time {
+    @include flex;
+    width: 100%;
+}
+
+.current-film {
+    @include flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    width: 100%;
+}
+
+.time {
+    @include initPosition(fixed, 0, 50px);
+    @include flex(flex-start, flex-start);
+    padding: 1rem;
+    background: rgba(0,0,0, .5);
+    z-index: 20;
+    flex-direction: column;
+
+    width: 150px;
+
+    gap: .5rem;
+
+    & > span {
+        @include flex;
+        color: white;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    border-radius: 0 .5rem .5rem 0;
+}
+
+.alter-films {
+    @include flex(flex-start, flex-start);
+    gap: 2rem;
+
+    padding: 2rem;
+    flex-wrap: wrap;
+
+    position: relative;
+
+    border: 1px solid silver;
+
+    width: 100%;
+
+    min-height: 200px;
+
+    &::before {
+        content: 'More related films';
+        font-size: 1.8rem;
+
+        @include flex;
+        @include absolutePosition(0, 50%);
+        transform: translateX(-50%);
+        display: inline-flex;
+        text-align: center;
+    }
+}
+
+.alter-element {
+    width: 100px;
+    height: 100px;
+    
+    & > a {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+
+        & > img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+
+            border-radius: 50%;
+        }
+
+        &::after {
+            content: attr(title);
+            @include flex;
+            text-align: center;
+        }
+
+    }
+}
+
+.img-box {
+    width: 100%;
+
+    height: 750px;
+
+    position: relative;
+
+    & > img {
+        width: 100%;
+        height: 100%;
+        
+        border-radius: 1rem;
+
+        object-fit: cover;
+        object-position: top;
+    }
+}
+
+.schedule-box {
+    @include flex(center, flex-start);
+    flex-direction: column;
+    width: 100%;
+
+    padding: 1rem;
+    border: 1px solid silver;
+    border-radius: .6rem;
+
+    gap: 2rem;
+
+    position: relative;
+
+    &::before {
+        content: 'Movie schedule on today';
+        @include absolutePosition(-35px, 50%);
+
+        transform: translateX(-50%);
+
+        font-size: 1.8rem;
+    }
+}
+
+.movie-schedule {
+    @include flex(space-between);
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: .4rem;
+
+    &:nth-child(even) {
+        background: #dfdbdb;
+    }
+}
+
+.additional-info {
+    @include flex;
+    gap: 3rem;
+}
+
+.movie-buttons {
+    @include flex;
+    gap: 2rem;
+
+    & > button {
+        width: 75px;
+        height: 1.5rem;
+        @include flex;
+
+        outline: none;
+
+        border: 1px solid silver;
+        background: transparent;
+        cursor: pointer;
+
+        transition: all .3s;
+
+        &:hover {
+            background: gray;
+            color: white;
+        }
+    }
+}
+
+.description-box {
+    @include flex;
+    @include absolutePosition(50%, 0);
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1.5rem;
+
+    height: 50%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+
+    border-radius: 1rem;
+
+    &__title,
+    &__trailer {
+        align-self: flex-start;
+    }
+
+    color: white;
+
+    &__title {
+        font-size: 2rem;
+    }
+
+    &__info {
+        word-spacing: .1rem;
+        font-size: 1.1rem;
+    }
+
+    &__trailer {
+        color: white;
+        border: 1px solid white;
+        border-radius: .6rem;
+
+        padding: .5rem 1.5rem;
+
+        transition: all .3s;
+
+        &:hover {
+            background: white;
+            color: black;
+        }
+    }
+
+}

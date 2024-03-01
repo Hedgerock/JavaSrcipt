@@ -4,12 +4,16 @@ import { renderDom, renderElements, renderPostTitles } from "../fetch-scripts/re
 import { createPost } from "./functions.js";
 import { initEditOption, removeEditBtn } from "./renderUtils.js";
 import { checkPostsStatus } from "./utils.js";
-import { initMenu } from "../menu.js";
+import { clockwork, initMenu } from "../menu.js";
 
 const newElBtn = document.querySelector('.fetch-buttons__current-btn_newEl');
 const checkbox = document.querySelector('.checkbox-edit');
 
-initMenu();
+clockwork();
+
+setInterval (() => {
+    clockwork();
+}, 1000)
 
 fetchFunction(url, renderElements, renderDom, renderPostTitles);
 

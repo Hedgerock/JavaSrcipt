@@ -1,4 +1,4 @@
-import { initMenu } from '../menu.js';
+import { clockwork, initMenu } from '../menu.js';
 import { fetchFunction, buttonsSwitcher } from './fetchAndButtons.js';
 import { renderComments } from './render/renderComments.js';
 import { renderPhoto } from './render/renderPhoto.js';
@@ -6,7 +6,11 @@ import { renderDom, renderElements, renderPostTitles } from './render/renderPost
 
 const buttons = document.querySelector('.fetch-buttons');
 
-initMenu();
+clockwork();
+
+setInterval (() => {
+    clockwork();
+}, 1000)
 
 buttons.onclick = (e) => {buttonsSwitcher(e)}
 

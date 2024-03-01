@@ -1,18 +1,19 @@
-import routes from "./data.js";
 import { changeActive } from "./menuManipulations.js";
 import { render } from "./render/renderComponent.js";
 
-export async function checkRoute(value) {
+export async function checkRoute(data, value) {
     let { hash, id, searchParams } = getHash();
     
     if (value) {
         hash = value;
     }
 
-    let route = routes.find(r => r.path[1] === hash);
+    console.log(hash);
+
+    let route = data.find(r => r.path[1] === hash);
 
     if (!route) {
-        route = routes.find(r => r.path[0] === '**');
+        route = data.find(r => r.path[0] === '**');
     }
 
     const component = await checkComponent(route, hash, id, searchParams);
