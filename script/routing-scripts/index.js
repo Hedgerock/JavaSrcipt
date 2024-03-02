@@ -4,6 +4,7 @@ import { checkRoute } from "./hashFunc.js";
 import { initSearch } from "./headerSearch.js";
 import { renderMenu } from "./render/renderMenu.js";
 
+initMenu();
 clockwork();
 
 setInterval (() => {

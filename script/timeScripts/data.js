@@ -16,7 +16,7 @@ export const films = [
         picture: 'https://s2.vcdn.biz/static/f/617365901/image.jpg/pt/r300x423x4',
         bigPicture: 'https://m.media-amazon.com/images/I/51pya3jHZPL._AC_UF894,1000_QL80_.jpg',
         trailer: 'https://www.youtube.com/watch?v=jEDaVHmw7r4',
-        schedule: [ time3, time2, time1 ],
+        schedule: [ time3, time4, time2, time1 ],
         relevant: [ 'Home Alone 2: Lost in New York', 'Home Alone 3' ]
     },
     {   
@@ -26,7 +26,7 @@ export const films = [
         picture: 'https://s6.vcdn.biz/static/f/6199197081/image.jpg/pt/r300x423x4',
         bigPicture: 'https://i.ebayimg.com/images/g/IrMAAOSwe89ir7jD/s-l1600.jpg',
         trailer: 'https://www.youtube.com/watch?v=5PSNL1qE6VY',
-        schedule: [ time3, time2, time4, time1 ],
+        schedule: [ time3, time4, time2, time1 ],
         relevant: [ 'Avatar: The Way of Water' ]
     },
     {   
@@ -36,7 +36,7 @@ export const films = [
         picture: 'https://s2.vcdn.biz/static/f/617202731/image.jpg/pt/r300x423x4',
         bigPicture: 'https://sceneprints.com/cdn/shop/products/s-l1600_ba5f3acd-f8ec-4393-8509-3652f001bdeb.jpg?v=1682630673',
         trailer: 'https://www.youtube.com/watch?v=5h9VDUNtoto',
-        schedule: [ time3, time2, time4, time1 ],
+        schedule: [ time3, time4, time2, time1 ],
         relevant: [ 'Home Alone', 'Home Alone 3' ]
     },
     {   
@@ -46,7 +46,7 @@ export const films = [
         picture: 'https://s5.vcdn.biz/static/f/5768111651/image.jpg/pt/r300x423x4',
         bigPicture: 'https://m.media-amazon.com/images/M/MV5BYjhiNjBlODctY2ZiOC00YjVlLWFlNzAtNTVhNzM1YjI1NzMxXkEyXkFqcGdeQXVyMjQxNTE1MDA@._V1_FMjpg_UX1000_.jpg',
         trailer: 'https://www.youtube.com/watch?v=a8Gx8wiNbs8',
-        schedule: [ time3, time2, time4, time1 ],
+        schedule: [ time3, time4, time2, time1 ],
         relevant: [ 'Avatar' ]
     },
     {   
@@ -56,7 +56,7 @@ export const films = [
         picture: 'https://s7.vcdn.biz/static/f/1009030381/image.jpg/pt/r300x423x4',
         bigPicture: 'https://ychef.files.bbci.co.uk/1280x720/p02ldkkm.jpg',
         trailer: 'https://www.youtube.com/watch?v=lyy7y0QOK-0',
-        schedule: [ time3, time2, time4, time1 ],
+        schedule: [ time3, time4, time2, time1 ],
         relevant: []
     },
     {   
@@ -66,7 +66,7 @@ export const films = [
         picture: 'https://s2.vcdn.biz/static/f/2794733021/image.jpg/pt/r300x423x4',
         bigPicture: 'https://lh3.googleusercontent.com/P3Dib2XqhE8V1XGagmkgwSW1s94Xf-SXBmBlIlGuKs_fPN9KJVftL6p3Rr-AWC_favD77doqaSvR=w1280-h720',
         trailer: 'https://www.youtube.com/watch?v=PP--dDh4axI',
-        schedule: [ time3, time2, time4, time1 ],
+        schedule: [ time3, time4, time2, time1 ],
         relevant: [ 'Home Alone', 'Home Alone 2: Lost in New York' ]
     }
 ]

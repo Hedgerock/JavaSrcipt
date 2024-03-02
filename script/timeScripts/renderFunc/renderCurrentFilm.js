@@ -6,6 +6,8 @@ import { getTimeBeforeMovie } from "../timeFun/getTimeBeforeMovie.js";
 import { renderEachComp } from "./renderPostsAndComp.js";
 
 export function renderCurrentFilm(props) {
+    window.scrollTo(0, 0);
+
     const { id } = props;
 
     const film = films.find(el => el.id == id);

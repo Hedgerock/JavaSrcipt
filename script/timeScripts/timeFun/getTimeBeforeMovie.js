@@ -15,7 +15,7 @@ export function getTimeBeforeMovie(hours, minutes, item) {
         timeDifference += 24 * 60;
     }
 
-    const hoursDifference = Math.floor(timeDifference / 60);
+    const hoursDifference = timeDifference / 60;
 
     return hoursDifference;
 }
