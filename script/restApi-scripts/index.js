@@ -9,6 +9,7 @@ import { clockwork, initMenu } from "../menu.js";
 const newElBtn = document.querySelector('.fetch-buttons__current-btn_newEl');
 const checkbox = document.querySelector('.checkbox-edit');
 
+initMenu();
 clockwork();
 
 setInterval (() => {

@@ -6,6 +6,7 @@ import { renderDom, renderElements, renderPostTitles } from './render/renderPost
 
 const buttons = document.querySelector('.fetch-buttons');
 
+initMenu();
 clockwork();
 
 setInterval (() => {

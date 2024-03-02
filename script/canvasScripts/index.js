@@ -3,6 +3,7 @@ import { cH, cW, getSquareOrRectangle } from "./canvasData.js";
 import { dynamicChanges, getValue } from "./dynamicFunc.js";
 import { setParameters } from "./setParams.js";
 
+initMenu();
 clockwork();
 
 setInterval (() => {

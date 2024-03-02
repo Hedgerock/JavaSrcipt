@@ -1,7 +1,8 @@
 import { coffeeMachines } from "./data.js";
 import { CoffeeMachineMaker } from "./class.js";
-import { clockwork } from "./menu.js";
+import { clockwork, initMenu } from "./menu.js";
 
+initMenu();
 clockwork();
 
 setInterval (() => {

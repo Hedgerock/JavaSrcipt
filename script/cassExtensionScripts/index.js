@@ -1,5 +1,5 @@
 import { animation, changeIcon, initTheme } from "./functions.js";
-import { clockwork } from "../menu.js";
+import { clockwork, initMenu } from "../menu.js";
 import { AlertClass } from "./alertClass.js";
 import { ConfirmClass } from "./confirm.js";
 import { PromptClass } from "./prompt.js";
@@ -8,6 +8,7 @@ const confirmBtn = document.querySelector('.container__select-btn_confirm')
 const alertBtn = document.querySelector('.container__select-btn_alert')
 const promptBtn = document.querySelector('.container__select-btn_prompt')
 
+initMenu();
 clockwork();
 
 setInterval (() => {
